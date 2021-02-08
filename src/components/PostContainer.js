@@ -16,13 +16,12 @@ class PostContainer extends React.Component{
         return(
 
 
-            <div className="post-container">
+            <div className="PostCont">
 
                 {this.renderPosts()}
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state) => {

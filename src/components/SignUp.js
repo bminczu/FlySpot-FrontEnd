@@ -62,11 +62,7 @@ handleSubmit = (e) => {
 
 }
 
-// const mapStateToProps = (state) => {
-//     return{
-//         signUpUser: state.signUpUser
-//     }
-// }
+
 
 const mapDispatchToProps = {
     signUpUser: signUpUser

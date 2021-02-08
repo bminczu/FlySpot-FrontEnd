@@ -10,10 +10,14 @@ class NavBar extends React.Component{
       this.props.history.push("/signin")
       
     }
-    handleCreateTask = () => {
-      this.props.history.push('/home/new')
+    handleCreatePost = () => {
+      this.props.history.push('/home/new-post')
     }
     
+    handleShowYourPosts = () => {
+      this.props.history.push('/your-posts')
+      
+    }
     render(){
     
     
@@ -23,7 +27,8 @@ class NavBar extends React.Component{
         <nav className="navbar navbar-light bg-light">
           {this.props.currentUser ? 
           <div>
-          <button  type="button" className="btn btn-info" onClick={this.handleCreateTask} >Create Task</button>
+          <button  type="button" className="btn btn-info" onClick={this.handleCreatePost} >Create Post</button>
+          <button  type="button" className="btn btn-info" onClick={this.handleShowYourPosts} >View Your Posts</button>
           <button type="button" className="btn btn-light" onClick= {this.handleSignOut}>Sign Out</button>
           </div>
           :
@@ -45,4 +50,4 @@ class NavBar extends React.Component{
       }
     }
     
-    export default connect(mapStateToProps)(withRouter(NavBar))
+    export default connect(mapStateToProps, null)(withRouter(NavBar))

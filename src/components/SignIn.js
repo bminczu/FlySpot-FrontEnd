@@ -35,7 +35,7 @@ handleSubmit = (e) => {
         })
     } else { 
        this.props.signinUser(user)
-       this.props.history.push("/home")
+       this.props.history.push("/feed")
     }
     })
 }

@@ -1,17 +1,8 @@
-import React from 'react' 
+import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import {connect} from 'react-redux'
-import {selectMyPost} from '../actions/selectMyPost'
-import {withRouter} from 'react-router-dom'
 
-class PostCard extends React.Component{
-
-    redirectToEdit = (e) => {
-        this.props.selectMyPost(this.props.post)
-        this.props.history.push(`/edit-your-post/${e.target.id}`)
-        console.log(e.target.id)
-    }
+class FeedCard extends React.Component{
 
     render(){
         
@@ -19,10 +10,10 @@ class PostCard extends React.Component{
         return(
 
 
-            <div className="PostCard">
-        <Card style={{ width: '18rem', height: '30rem'}}>
+            <div className="FeedCard">
+        <Card style={{ width: '30rem', height: '30rem'}}>
             <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
+                <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
                 <h1> {title}</h1>
@@ -33,10 +24,9 @@ class PostCard extends React.Component{
                 <p>Latitude:  {latitude}</p>
                 <p> Longitude: {longitude}</p>
                 </Card.Text>
-                <Button onClick={this.redirectToEdit} id={id} variant="primary">Edit</Button>
+                <Button variant="primary">Go somewhere</Button>
             </Card.Body>
             </Card>
-            
             
 
             </div>
@@ -48,9 +38,4 @@ class PostCard extends React.Component{
     }
 }
 
-const mapDispatchToProps = {
-
-    selectMyPost: selectMyPost
-}
-
-export default connect(null, mapDispatchToProps)(withRouter(PostCard))
+export default FeedCard

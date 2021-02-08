@@ -5,6 +5,9 @@ import PostContainer from './components/PostContainer.js'
 import NavBar from './components/NavBar'
 import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
+import Feed from './components/Feed'
+import NewPostForm from './components/NewPostForm'
+import EditPostForm from './components/EditPostForm'
 
 import './App.css';
 
@@ -18,12 +21,13 @@ class App extends React.Component {
       <div className="App">
         <NavBar/>
         <Switch>
-          <Route exact path="/home" component={PostContainer} />
+          <Route exact path="/your-posts" component={PostContainer} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
-          {/* <Route exact path="/home/new" component={TaskForm} />
-          <Route exact path="/home/:id" component={ShowCard} />
-          <Route exact path="/home/edit/:id" component={UpdateTaskForm} /> */}
+          <Route exact path="/feed" component={Feed} />
+          <Route exact path="/home/new-post" component={NewPostForm} />
+          <Route exact path="/edit-your-post/:id" component={EditPostForm} />
+        
         </Switch> 
       </div>
  </BrowserRouter>
