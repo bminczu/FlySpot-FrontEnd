@@ -10,6 +10,11 @@ class SignUp extends React.Component{
         error: " "
         
     }
+
+    // directToFeed = () => {
+    //     this.props.history.push('/feed')
+    // }
+
 handleInputChange = (e) => {
     this.setState({
         [e.target.name]: e.target.value
@@ -36,7 +41,7 @@ handleSubmit = (e) => {
             })
         } else {
            this.props.signUpUser(newUserObj)
-           this.props.history.push("/home")
+           this.props.history.push("/feed")
         } 
     })
 }
@@ -50,10 +55,10 @@ handleSubmit = (e) => {
             {this.state.error ? <h5 style={{color: "red"}}>{this.state.error}</h5> : null}
             <form onSubmit={this.handleSubmit}>
                 <div>
-                    <input  name='username'  onChange={this.handleInputChange} value={this.state.username} placeholder="Enter your username"/> <br></br> <br></br>
+                    <input  name='username'  onChange={this.handleInputChange} value={this.state.username} placeholder="Enter unique username"/> <br></br> <br></br>
                     <input  name='password'  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
                  </div>
-                 <button type="submit" class="btn btn-info">Log In</button>
+                 <button type="submit" class="btn btn-info">Create User</button>
     
             </form>
         </div>

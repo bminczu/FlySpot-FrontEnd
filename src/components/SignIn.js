@@ -10,6 +10,11 @@ class SignIn extends React.Component{
         error: " "
         
     }
+
+redirectToSignUp = () => {
+    this.props.history.push('/signup')
+} 
+
 handleInputChange = (e) => {
     this.setState({
         [e.target.name]: e.target.value
@@ -26,15 +31,16 @@ handleSubmit = (e) => {
     }
     fetch('http://localhost:3000/api/v1/auth', reqObj)
     .then(resp => resp.json())
-    .then(user => {                         ////then back end sends  back user obj after verifying in backend
-        console.log(user);
-    
-        if (user.error){
+    .then(userObj => {                         ////then back end sends  back user obj after verifying in backend
+    console.log(userObj)
+        if (userObj.error){
             this.setState({
-                error: user.error
+                error: userObj.error
         })
     } else { 
-       this.props.signinUser(user)
+        localStorage.setItem("jwt_token", userObj.token)
+        console.log(userObj.user)
+       this.props.signinUser(userObj.user)
        this.props.history.push("/feed")
     }
     })
@@ -54,6 +60,7 @@ handleSubmit = (e) => {
                     <input  name={'password'}  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
                  </div>
                  <button type="submit" class="btn btn-info">Log In</button>
+                 <button type="submit" onClick={this.redirectToSignUp} class="btn btn-info">Sign up</button>
     
             </form>
         </div>

@@ -4,6 +4,13 @@ import Button from 'react-bootstrap/Button'
 
 class FeedCard extends React.Component{
 
+
+    handleShowPost = () => {
+        this.props.history.push('/show-post-card')
+    }
+
+
+
     render(){
         
         const {title, id, address, latitude, longitude, category, description, airspace } = this.props.post
@@ -24,7 +31,7 @@ class FeedCard extends React.Component{
                 <p>Latitude:  {latitude}</p>
                 <p> Longitude: {longitude}</p>
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button handleShowPost={this.handleShowPost} variant="primary">Leave Feedback</Button>
             </Card.Body>
             </Card>
             

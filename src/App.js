@@ -8,10 +8,35 @@ import SignUp from './components/SignUp'
 import Feed from './components/Feed'
 import NewPostForm from './components/NewPostForm'
 import EditPostForm from './components/EditPostForm'
-
+import {connect} from 'react-redux'
+import {currentUser} from './actions/signinUser'
 import './App.css';
 
+
 class App extends React.Component { 
+
+  componentDidMount(){
+
+    const token = localStorage.getItem('jwt_token')
+    if (!token) {
+        this.props.history.push('/signin')
+    } else {
+
+        const reqObj = {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+        fetch("http://localhost:3000/api/v1/current_user", reqObj)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data.user)
+            this.props.currentUser(data.user)
+            
+        })
+    }
+  }
 
 
   render(){
@@ -35,5 +60,8 @@ class App extends React.Component {
   }
 }
 
+const mapDispatchToProps = {
+  currentUser: currentUser
+}
 
-export default App;
+export default connect(null, mapDispatchToProps)(App);

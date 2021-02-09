@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PostCard from './PostCard'
 import FeedCard from './FeedCard'
+import {getPublicPosts} from '../actions/getPublicPosts'
 
 
 class Feed extends React.Component{
@@ -10,7 +11,9 @@ class Feed extends React.Component{
         postsArr:[]
     }
 
-    componentDidMount(){
+
+
+        componentDidMount(){
         fetch("http://localhost:3000/posts")
             .then(response => response.json())
             .then(allPosts => {
@@ -44,7 +47,8 @@ class Feed extends React.Component{
 const mapStateToProps = (state) => {
 
  return {
-     currentUser: state.currentUser
+     currentUser: state.currentUser,
+     publicPosts: state.publicPosts
  }
 }
 

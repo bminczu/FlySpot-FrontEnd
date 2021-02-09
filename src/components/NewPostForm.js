@@ -53,7 +53,7 @@ class NewPostForm extends React.Component{
         .then(newPostObj => {
            
             this.props.createPost(newPostObj)
-            this.props.history.push("/my-posts")
+            this.props.history.push("/your-posts")
             
         })
     }

@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom'
+import { logOutUser } from '../actions/logOutUser';
 
 
 class NavBar extends React.Component{ 
 
-    handleSignOut = () => {
-      this.props.SignOutUser()
+    handleLogOut = () => {
+      this.props.logOutUser()
       this.props.history.push("/signin")
       
     }
@@ -16,7 +17,10 @@ class NavBar extends React.Component{
     
     handleShowYourPosts = () => {
       this.props.history.push('/your-posts')
-      
+    }
+
+    handleDirectToFeed = () => {
+      this.props.history.push('/feed')
     }
     render(){
     
@@ -28,8 +32,9 @@ class NavBar extends React.Component{
           {this.props.currentUser ? 
           <div>
           <button  type="button" className="btn btn-info" onClick={this.handleCreatePost} >Create Post</button>
+          <button  type="button" className="btn btn-info" onClick={this.handleDirectToFeed} >Feed</button>
           <button  type="button" className="btn btn-info" onClick={this.handleShowYourPosts} >View Your Posts</button>
-          <button type="button" className="btn btn-light" onClick= {this.handleSignOut}>Sign Out</button>
+          <button type="button" className="btn btn-light" onClick={this.handleLogOut}>Sign Out</button>
           </div>
           :
           null
@@ -42,7 +47,9 @@ class NavBar extends React.Component{
       };
     }
     
-    
+    const mapDispatchToProps = {
+      logOutUser: logOutUser
+    }
     
     const mapStateToProps = (state) => {
       return{
@@ -50,4 +57,4 @@ class NavBar extends React.Component{
       }
     }
     
-    export default connect(mapStateToProps, null)(withRouter(NavBar))
+    export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavBar))

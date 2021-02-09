@@ -4,6 +4,7 @@ const posts = (state=[], action) => {
 
     switch(action.type){
         case "SIGN_IN_USER":
+        case "CURRENT_USER":
             return action.user.posts
         case "CREATE_POST":
         return [...state, action.post]
