@@ -1,12 +1,19 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import {withRouter} from 'react-router-dom'
+import { selectPublicPost } from '../actions/selectPublicPost'
+import {connect} from 'react-redux'
+import {selectPublicPostReviews} from '../actions/selectPublicPostReview'
 
 class FeedCard extends React.Component{
 
 
-    handleShowPost = () => {
-        this.props.history.push('/show-post-card')
+    handleShowPost = (e) => {
+        const id = e.target.id
+        this.props.selectPublicPost(this.props.post)
+        this.props.selectPublicPostReviews(this.props.post.reviews)
+        this.props.history.push(`/show-post/${id}`)
     }
 
 
@@ -17,8 +24,8 @@ class FeedCard extends React.Component{
         return(
 
 
-            <div className="FeedCard">
-        <Card style={{ width: '30rem', height: '30rem'}}>
+            <div class="card">
+        <Card  style={{ width: '30rem', height: '30rem'}}>
             <Card.Img variant="top" src="holder.js/100px180" />
                 <Card.Body>
                 <Card.Title>{title}</Card.Title>
@@ -31,7 +38,8 @@ class FeedCard extends React.Component{
                 <p>Latitude:  {latitude}</p>
                 <p> Longitude: {longitude}</p>
                 </Card.Text>
-                <Button handleShowPost={this.handleShowPost} variant="primary">Leave Feedback</Button>
+                <Button onClick={this.handleShowPost} id={id} variant="primary">View</Button>
+
             </Card.Body>
             </Card>
             
@@ -45,4 +53,10 @@ class FeedCard extends React.Component{
     }
 }
 
-export default FeedCard
+const mapDispatchToProps = {
+    selectPublicPost: selectPublicPost,
+    selectPublicPostReviews: selectPublicPostReviews
+}
+
+
+export default connect(null, mapDispatchToProps)(withRouter(FeedCard))

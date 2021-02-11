@@ -10,7 +10,7 @@ class PostCard extends React.Component{
     redirectToEdit = (e) => {
         this.props.selectMyPost(this.props.post)
         this.props.history.push(`/edit-your-post/${e.target.id}`)
-        console.log(e.target.id)
+        
     }
 
     render(){

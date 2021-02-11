@@ -73,7 +73,7 @@ class EditPostForm extends React.Component {
             )
         }
     }
-    const mapStateToProps = (state) =>{
+    const mapStateToProps = (state) => {
         return {
             post: state.post,
             currentUser: state.currentUser,

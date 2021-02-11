@@ -32,14 +32,12 @@ handleSubmit = (e) => {
     fetch('http://localhost:3000/api/v1/auth', reqObj)
     .then(resp => resp.json())
     .then(userObj => {                         ////then back end sends  back user obj after verifying in backend
-    console.log(userObj)
         if (userObj.error){
             this.setState({
                 error: userObj.error
         })
     } else { 
         localStorage.setItem("jwt_token", userObj.token)
-        console.log(userObj.user)
        this.props.signinUser(userObj.user)
        this.props.history.push("/feed")
     }

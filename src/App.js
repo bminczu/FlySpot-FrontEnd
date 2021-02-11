@@ -8,6 +8,8 @@ import SignUp from './components/SignUp'
 import Feed from './components/Feed'
 import NewPostForm from './components/NewPostForm'
 import EditPostForm from './components/EditPostForm'
+import showPublicPost from './components/showPublicPost'
+import ReviewPublicPost from './components/ReviewPublicPost'
 import {connect} from 'react-redux'
 import {currentUser} from './actions/signinUser'
 import './App.css';
@@ -31,7 +33,6 @@ class App extends React.Component {
         fetch("http://localhost:3000/api/v1/current_user", reqObj)
         .then(response => response.json())
         .then(data => {
-          console.log(data.user)
             this.props.currentUser(data.user)
             
         })
@@ -52,7 +53,8 @@ class App extends React.Component {
           <Route exact path="/feed" component={Feed} />
           <Route exact path="/home/new-post" component={NewPostForm} />
           <Route exact path="/edit-your-post/:id" component={EditPostForm} />
-        
+          <Route exact path="/show-post/:id" component={showPublicPost} />
+          <Route exact path="/review-post/:id" component={ReviewPublicPost} />
         </Switch> 
       </div>
  </BrowserRouter>

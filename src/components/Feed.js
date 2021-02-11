@@ -6,13 +6,12 @@ import {getPublicPosts} from '../actions/getPublicPosts'
 
 class Feed extends React.Component{
 
-
+    
         componentDidMount(){
         fetch("http://localhost:3000/posts")
             .then(response => response.json())
             .then(allPosts => {
                 let postsArr = allPosts.filter(postObj => postObj.user_id !== this.props.currentUser.id)
-                console.log(postsArr) 
                 this.props.getPublicPosts(postsArr)   
             }
         )
@@ -28,7 +27,7 @@ class Feed extends React.Component{
                 
        
                 {this.props.publicPosts.map(postObj => {
-                        return <FeedCard key={postObj.id}  post={postObj} /> 
+                        return <FeedCard  key={postObj.id} post={postObj} /> 
                     })}
             </div>
 
