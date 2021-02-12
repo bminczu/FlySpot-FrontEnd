@@ -1,21 +1,47 @@
 import React from 'react' 
 import {connect} from 'react-redux'
 import {Button, Container, Col, Row, Card} from 'react-bootstrap'
-import selectPublicPostReview from '../reducers/selectPublicPostReviews'
+import {deleteReview} from '../actions/selectPublicPostReview'
+
 
 
 class showPublicPost extends React.Component{
     
-   
+   handleDeleteReview = (e) => {
+    const id = e.target.id
+    console.log(id)
+    fetch(`http://localhost:3000/reviews/${id}`, {
+        method: "DELETE"
+      
+    })
+    .then(resp => resp.json())
+    .then(() => {
+        this.props.deleteReview(id)
+        
+        // this.props.history.push(`/show-post/${this.props.selectPublicPost.id}`)
+    })
+}
 
     renderReviews = () => {
-        // replace selectpublicPosts.reviews with new reducer selectPublicPostReviews 
+        
         return this.props.selectPublicPostReviews.map(reviewObj => {
+            if (reviewObj.user_id !== this.props.currentUser.id)
             return <Card> 
-                {reviewObj.user_rating} <br></br>
-                {reviewObj.comment} <br></br>
+                    {reviewObj.user_rating} <br></br>
+                    {reviewObj.comment} <br></br>
+                    </Card>
+
+
+            if (reviewObj.user_id == this.props.currentUser.id)
+            return <Card> 
                 
-                 </Card>
+                users rating: {reviewObj.user_rating}/5 ⭐s <br></br>
+                {reviewObj.comment} <br></br>
+                <div><Button>edit post</Button>
+                <Button id={reviewObj.id} onClick={this.handleDeleteReview}> delete </Button>
+                </div>
+            </Card>
+            
         })
     }
     render(){
@@ -62,13 +88,14 @@ class showPublicPost extends React.Component{
     const mapStateToProps = (state) => {
         return {
             selectPublicPost: state.selectPublicPost,
-            selectPublicPostReviews: state.selectPublicPostReviews
-            // insert new reducer selectPublicPostReviews
+            selectPublicPostReviews: state.selectPublicPostReviews,
+            currentUser: state.currentUser
         }
     }
-    // const mapDispatchToProps = {
-    //     selectPublicPost: selectPublicPost
-    // }
+
+    const mapDispatchToProps = {
+        deleteReview: deleteReview
+    }
 
 
-export default connect(mapStateToProps, null)(showPublicPost)
+export default connect(mapStateToProps, mapDispatchToProps)(showPublicPost)

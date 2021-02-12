@@ -8,7 +8,7 @@ class ReviewPublicPost extends React.Component{
 
     state = {
         comment: "",
-        rating: ""
+        user_rating: ""
     }
     handleInputChange = (e) => {
         this.setState({
@@ -25,7 +25,7 @@ class ReviewPublicPost extends React.Component{
             body: JSON.stringify({
                 user_id: this.props.currentUser.id,
                 comment: this.state.comment,
-                rating: this.state.rating,
+                user_rating: this.state.rating,
                 post_id: this.props.selectPublicPost.id
             })
         })

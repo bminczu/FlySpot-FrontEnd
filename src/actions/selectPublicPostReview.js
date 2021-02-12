@@ -11,3 +11,10 @@ export const addReview= (review) => {
         review: review
     }
 }
+
+export const deleteReview = (id) => {
+    return {
+        type: "DELETE_REVIEW",
+        id: id
+    }
+}
