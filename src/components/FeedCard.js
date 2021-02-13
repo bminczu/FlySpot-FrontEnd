@@ -44,51 +44,13 @@ class FeedCard extends React.Component{
                         <p>Latitude:  {latitude}</p>
                         <p> Longitude: {longitude}</p> */}
                         </Card.Text>
-                        <Button onClick={this.handleShowPost} id={id} variant="primary">View</Button>
+                        <Button onClick={this.handleShowPost} className="btn btn-secondary" id={id} >View</Button>
 
                     </Card.Body>
                     </Card>
                    
                 </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //     <div class="card">
-        // <Card >
-        //     <Card.Img variant="top" src="holder.js/100px180" />
-        //         <Card.Body>
-        //         <Card.Title>{title}</Card.Title>
-        //         <Card.Text>
-        //         <h1> {title}</h1>
-        //         <h2>{category}</h2>
-        //         <p>{description}</p>
-        //         <p>Airspace Class: {airspace}</p>
-        //         <p>Address: {address}</p>
-        //         <p>Latitude:  {latitude}</p>
-        //         <p> Longitude: {longitude}</p>
-        //         </Card.Text>
-        //         <Button onClick={this.handleShowPost} id={id} variant="primary">View</Button>
-
-        //     </Card.Body>
-        //     </Card>
-            
-
-            // </div>
-
-
-
 
         )
     }
