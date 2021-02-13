@@ -20,7 +20,7 @@ class PostCard extends React.Component{
 
 
             <div className="PostCard">
-        <Card style={{ width: '18rem', height: '30rem'}}>
+        <Card>
             <Card.Img variant="top" src="holder.js/100px180" />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>

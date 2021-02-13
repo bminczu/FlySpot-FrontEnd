@@ -31,9 +31,9 @@ class NavBar extends React.Component{
         <nav className="navbar navbar-light bg-light">
           {this.props.currentUser ? 
           <div>
-          <button  type="button" className="btn btn-info" onClick={this.handleCreatePost} >Create Post</button>
-          <button  type="button" className="btn btn-info" onClick={this.handleDirectToFeed} >Feed</button>
-          <button  type="button" className="btn btn-info" onClick={this.handleShowYourPosts} >View Your Posts</button>
+          <button  type="button" className="btn btn-secondary" onClick={this.handleCreatePost} >Create Post</button>
+          <button  type="button" className="btn btn-secondary" onClick={this.handleDirectToFeed} >Feed</button>
+          <button  type="button" className="btn btn-secondary" onClick={this.handleShowYourPosts} >View Your Posts</button>
           <button type="button" className="btn btn-light" onClick={this.handleLogOut}>Sign Out</button>
           </div>
           :

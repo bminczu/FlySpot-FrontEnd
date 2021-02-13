@@ -23,7 +23,7 @@ class Feed extends React.Component{
        
         return(
 
-            <div>
+            <div className="feed-card-background">
                 
        
                 {this.props.publicPosts.map(postObj => {

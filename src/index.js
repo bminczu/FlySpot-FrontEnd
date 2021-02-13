@@ -17,7 +17,7 @@ ReactDOM.render(
  
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <App className="app" />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
