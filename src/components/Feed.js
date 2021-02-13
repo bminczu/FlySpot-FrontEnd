@@ -8,11 +8,12 @@ class Feed extends React.Component{
 
     
         componentDidMount(){
-        fetch("http://localhost:3000/posts")
+        fetch("http://localhost:3000/posts/5")
             .then(response => response.json())
             .then(allPosts => {
-                let postsArr = allPosts.filter(postObj => postObj.user_id !== this.props.currentUser.id)
-                this.props.getPublicPosts(postsArr)   
+                console.log(allPosts)
+                // let postsArr = allPosts.filter(postObj => postObj.user_id !== this.props.currentUser.id)
+                // this.props.getPublicPosts(postsArr)   
             }
         )
      }

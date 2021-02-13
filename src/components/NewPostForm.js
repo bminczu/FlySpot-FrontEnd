@@ -1,10 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { createPost } from '../actions/createPost'
+import {DirectUpload} from 'activestorage'
 
 class NewPostForm extends React.Component{
 
     state = {
+        image: null,
         title: "",
         user_id: '',
         address: "",
@@ -17,6 +19,12 @@ class NewPostForm extends React.Component{
         video: ''
     }
 
+    handleImage = (e) => {
+        this.setState({
+            image: e.target.files[0]
+        })
+        // console.log(e.target.files[0])
+    }
     handleInputChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -28,7 +36,28 @@ class NewPostForm extends React.Component{
             [e.target.name]: parseInt(e.target.value)
         })
     }
+    uploadFile = (file, post)=> {
+        const upload = new DirectUpload(file, "http://localhost:3000/rails/active_storage/direct_uploads") 
+        upload.create((error, blob) => {
+            if (error){
+            console.log(error)
+        } else {
+            fetch(`http://localhost:3000/posts/${post.id}`, {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    image: blob.signed_id
 
+                })
+            })
+            .then(response => response.json())
+            .then(console.log)
+        }
+    })
+
+    
+    }
 
     handleSubmit = (e) => {
         e.preventDefault()
@@ -37,6 +66,8 @@ class NewPostForm extends React.Component{
             headers: {
                 'Content-Type': 'application/json'},
             body: JSON.stringify({
+               post:
+                {
                 title: this.state.title,
                 user_id: this.props.currentUser.id,
                 address: this.state.address,
@@ -46,23 +77,26 @@ class NewPostForm extends React.Component{
                 airspace: this.state.airspace,
                 description: this.state.description,
                 authors_rating: this.state.authors_rating,
-                video: this.state.video
+                video: this.state.video}
             })
         })
         .then (response => response.json())
         .then(newPostObj => {
-           
+            this.uploadFile(this.state.image, newPostObj)
             this.props.createPost(newPostObj)
             this.props.history.push("/your-posts")
             
         })
     }
+
     render(){
         return(
 
            
         <div className="new-post">
           <form onSubmit={this.handleSubmit}>
+             <input type="file"  onChange={this.handleImage}   name= {"image"} /><br></br> <br></br>
+
              <input   onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title Your Post"/><br></br> <br></br>
              <input  onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/><br></br> <br></br>
              <input  onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/><br></br> <br></br>
