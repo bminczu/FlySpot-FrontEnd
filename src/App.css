@@ -1,5 +1,5 @@
 
-.sign-in {
+.background {
   /* The image used */
   background-image: url(/Users/bartminczuk/Flatiron/Mod5 Project/front-end-drone/src/images/BackgroundForMod5 2.jpg);
   height: 100%;
@@ -21,14 +21,32 @@
 
 .feed-card {
   background-image: url(/Users/bartminczuk/Flatiron/Mod5 Project/front-end-drone/src/images/FeedCardBackground.jpg);
+
+}
+
+.form-background {
+   /* The image used */
+  background-image: url(/Users/bartminczuk/Flatiron/Mod5 Project/front-end-drone/src/images/BackgroundForMod5 2.jpg);
+  height: 100%;
+  width: 100%;
+  position: inherit;
+  top: 0;
+  /* Full height */
+  height: 100%; 
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
 
 
 
-
-
+.whitefont {
+  font-size: medium;
+  color: 	#C0C0C0
+}
 
 
 

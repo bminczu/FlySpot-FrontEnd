@@ -10,6 +10,7 @@ import NewPostForm from './components/NewPostForm'
 import EditPostForm from './components/EditPostForm'
 import showPublicPost from './components/showPublicPost'
 import ReviewPublicPost from './components/ReviewPublicPost'
+import EditReviewForm from './components/EditReviewForm'
 import {connect} from 'react-redux'
 import {currentUser} from './actions/signinUser'
 import './App.css';
@@ -55,6 +56,7 @@ class App extends React.Component {
           <Route exact path="/edit-your-post/:id" component={EditPostForm} />
           <Route exact path="/show-post/:id" component={showPublicPost} />
           <Route exact path="/review-post/:id" component={ReviewPublicPost} />
+          <Route exact path="/edit-review/:id" component={EditReviewForm} />
         </Switch> 
       </div>
  </BrowserRouter>

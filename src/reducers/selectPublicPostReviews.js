@@ -3,19 +3,15 @@ const selectPublicPostReviews = (state=[], action) => {
     switch(action.type) {
         case "SELECT_PUBLIC_POST_REVIEWS":
             return action.publicPostReviews
+
         case "ADD_REVIEW":
                 return [...state, action.review]
-        case "DELETE_PUBLIC_POST_REVIEW":
+        case "DELETE_REVIEW":
+                    updatedReviews = state.filter(review => review.id !== action.id)
+                    return updatedReviews
+        case "UPDATE_REVIEW":
                 return updatedReviews = state.map(reviewObj => {
-                    if (reviewObj.id !== action.review.id){
-                    return action.review
-                } else { 
-                    return reviewObj
-                }
-                })
-        case "UPDATE_PUBLIC_POST_REVIEW":
-                return updatedReviews = state.map(reviewObj => {
-                    if (reviewObj.id == action.review){
+                    if (reviewObj.id == action.review.id){
                         return action.review
                     } else {
                          return reviewObj

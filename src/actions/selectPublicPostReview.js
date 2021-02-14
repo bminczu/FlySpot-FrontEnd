@@ -18,3 +18,10 @@ export const deleteReview = (id) => {
         id: id
     }
 }
+
+export const updateReview = (review) => {
+    return{ 
+        type: "UPDATE_REVIEW",
+        review: review
+    }
+}

@@ -1,48 +1,40 @@
 import React from 'react' 
 import {connect} from 'react-redux'
 import {Button, Container, Col, Row, Card} from 'react-bootstrap'
-import {deleteReview} from '../actions/selectPublicPostReview'
+import {deleteReview, selectPublicPostReviews} from '../actions/selectPublicPostReview'
+import {selectReview}from '../actions/selectReview'
+import ReviewCard from './ReviewCard'
 
 
 
 class showPublicPost extends React.Component{
     
-   handleDeleteReview = (e) => {
-    const id = e.target.id
-    console.log(id)
-    fetch(`http://localhost:3000/reviews/${id}`, {
-        method: "DELETE"
+    handleEdit = (e) => {
+        console.log(e.target)
+        // this.props.selectReview(this.props.selectPublicPostReviews)
+    }
+
+
+//    handleDeleteReview = (e) => {
+//     const id = parseInt(e.target.id)
+//     console.log(id)
+//     fetch(`http://localhost:3000/reviews/${id}`, {
+//         method: "DELETE"
       
-    })
-    .then(resp => resp.json())
-    .then(() => {
-        this.props.deleteReview(id)
-        
-        // this.props.history.push(`/show-post/${this.props.selectPublicPost.id}`)
-    })
-}
+//     })
+//     .then(resp => resp.json())
+//     .then(() => {
+//         this.props.deleteReview(id)
+//      console.log(id)
+//         this.props.history.push(`/show-post/${this.props.selectPublicPost.id}`)
+//     })
+// }
 
     renderReviews = () => {
-        
         return this.props.selectPublicPostReviews.map(reviewObj => {
-            if (reviewObj.user_id !== this.props.currentUser.id)
-            return <Card> 
-                    {reviewObj.user_rating} <br></br>
-                    {reviewObj.comment} <br></br>
-                    </Card>
-
-
-            if (reviewObj.user_id == this.props.currentUser.id)
-            return <Card> 
-                
-                users rating: {reviewObj.user_rating}/5 ⭐s <br></br>
-                {reviewObj.comment} <br></br>
-                <div><Button>edit post</Button>
-                <Button id={reviewObj.id} onClick={this.handleDeleteReview}> delete </Button>
-                </div>
-            </Card>
-            
+            return <ReviewCard key={reviewObj.id} review={reviewObj} />
         })
+        
     }
     render(){
 
@@ -90,11 +82,13 @@ class showPublicPost extends React.Component{
             selectPublicPost: state.selectPublicPost,
             selectPublicPostReviews: state.selectPublicPostReviews,
             currentUser: state.currentUser
+           
         }
     }
 
     const mapDispatchToProps = {
-        deleteReview: deleteReview
+        deleteReview: deleteReview,
+        selectReview: selectReview
     }
 
 

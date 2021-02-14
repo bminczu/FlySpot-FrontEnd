@@ -50,7 +50,7 @@ handleSubmit = (e) => {
 
     render(){
         return(
-        <div className="sign-up">
+        <div className="background">
             <h2> Please Sign Up</h2>
             {this.state.error ? <h5 style={{color: "red"}}>{this.state.error}</h5> : null}
             <form onSubmit={this.handleSubmit}>
@@ -58,7 +58,7 @@ handleSubmit = (e) => {
                     <input  name='username'  onChange={this.handleInputChange} value={this.state.username} placeholder="Enter unique username"/> <br></br> <br></br>
                     <input  name='password'  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
                  </div>
-                 <button type="submit" class="btn btn-info">Create User</button>
+                 <button type="submit" class="btn btn-secondary">Create User</button>
     
             </form>
         </div>

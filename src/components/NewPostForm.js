@@ -61,7 +61,7 @@ class NewPostForm extends React.Component{
         return(
 
            
-        <div className="new-post">
+        <div className="">
           <form onSubmit={this.handleSubmit}>
              <input   onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title Your Post"/><br></br> <br></br>
              <input  onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/><br></br> <br></br>

@@ -32,7 +32,7 @@ class FeedCard extends React.Component{
                 
                     <div  class="col-md">
                 <Card >
-                    <Card.Img variant="top" src="holder.js/100px180" />
+                    {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                         <Card.Body className="feed-card" >
                         <Card.Title>{title}</Card.Title>
                         <Card.Text>
@@ -44,13 +44,14 @@ class FeedCard extends React.Component{
                         <p>Latitude:  {latitude}</p>
                         <p> Longitude: {longitude}</p> */}
                         </Card.Text>
-                        <Button onClick={this.handleShowPost} className="btn btn-secondary" id={id} >View</Button>
+                        <Button onClick={this.handleShowPost} id={id} >View</Button>
 
                     </Card.Body>
                     </Card>
                    
                 </div>
                 </div>
+
 
         )
     }
