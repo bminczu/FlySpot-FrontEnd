@@ -57,8 +57,8 @@ export class MapContainer extends Component {
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div>
               <div> 
-                <h2>Latitude: {this.state.mapCenter.lat}</h2>
-                <h2>Longitude: {this.state.mapCenter.lng}</h2>
+                <p>Latitude: {this.state.mapCenter.lat}</p>
+                <p>Longitude: {this.state.mapCenter.lng}</p>
               </div>
               <input
                 {...getInputProps({
