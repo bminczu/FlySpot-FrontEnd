@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { createPost } from '../actions/createPost'
-// import MapContainer from './MapContainer'
+import MapContainer from './MapContainer'
+import {Button, Container, Col, Row, Card} from 'react-bootstrap'
 
 class NewPostForm extends React.Component{
 
@@ -60,26 +61,39 @@ class NewPostForm extends React.Component{
     }
     render(){
         return(
+            
 
-           
-        <div className="">
-            {/* <div>
-            <MapContainer/>
 
-            </div> */}
-          <form onSubmit={this.handleSubmit}>
-             <input   onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title Your Post"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.category} name= {"category"} placeholder="Category"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="Airspace"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.authors_rating} name= {"authors_rating"} placeholder="Author's Rating"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Video Link"/><br></br> <br></br>
-            <input type='submit' className="btn btn-secondary" value="Create New Post" />
-           </form>
-        </div>
+            <Container>
+            <br></br>
+            <br></br>
+        <Row>
+            <Col>      
+                <div>
+                 <MapContainer/>
+                 </div>
+            </Col>
+            <Col>
+            <h1>New Post Details</h1>
+            <form onSubmit={this.handleSubmit}>
+        <input   onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title Your Post"/><br></br> <br></br>
+        <input  onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/><br></br> <br></br>
+        <input  onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/><br></br> <br></br>
+        <input  onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/><br></br> <br></br>
+        <input  onChange={this.handleInputChange} value={this.state.category} name= {"category"} placeholder="Category"/><br></br> <br></br>
+        <input  onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="Airspace"/><br></br> <br></br>
+        <input  onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description"/><br></br> <br></br>
+        <input  onChange={this.handleInputChange} value={this.state.authors_rating} name= {"authors_rating"} placeholder="Author's Rating"/><br></br> <br></br>
+        <input  onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Video Link"/><br></br> <br></br>
+        <input type='submit' className="btn btn-secondary" value="Create New Post" />
+        </form>
+            
+            </Col>
+        </Row>
+    </Container>
+
+
+
          )
     }
  }

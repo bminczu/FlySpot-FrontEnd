@@ -11,24 +11,9 @@ class showPublicPost extends React.Component{
     
     handleEdit = (e) => {
         console.log(e.target)
-        // this.props.selectReview(this.props.selectPublicPostReviews)
     }
 
 
-//    handleDeleteReview = (e) => {
-//     const id = parseInt(e.target.id)
-//     console.log(id)
-//     fetch(`http://localhost:3000/reviews/${id}`, {
-//         method: "DELETE"
-      
-//     })
-//     .then(resp => resp.json())
-//     .then(() => {
-//         this.props.deleteReview(id)
-//      console.log(id)
-//         this.props.history.push(`/show-post/${this.props.selectPublicPost.id}`)
-//     })
-// }
 
     renderReviews = () => {
         return this.props.selectPublicPostReviews.map(reviewObj => {
