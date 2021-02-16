@@ -3,12 +3,13 @@ import {connect} from 'react-redux'
 import { createPost } from '../actions/createPost'
 import MapContainer from './MapContainer'
 import {Button, Container, Col, Row, Card} from 'react-bootstrap'
-import { DirectUpload } from 'activestorage';
+import { DirectUpload, MyUploader } from 'activestorage';
 
 class NewPostForm extends React.Component{
 constructor(){
     super()
     this.state = {
+        returnedImageUrl: "",
         title: "",
         user_id: '',
         address: "",
@@ -19,12 +20,14 @@ constructor(){
         description: "",
         authors_rating: '',
         video: '',
-        photo: {}
+        photo: null
     }
     }
 
     handleInputChange = (e) => {
-        if(e.target.name === 'photo') {
+        
+        if (e.target.name === 'photo') {
+            console.log(e.target.files[0])
             this.setState({
                 [e.target.name]: e.target.files[0]
             })
@@ -33,9 +36,6 @@ constructor(){
                 [e.target.name]: e.target.value
             })
         }
-        this.setState({
-            [e.target.name]: e.target.value
-        })
     }
 
     handleNumberInputChange = (e) => {
@@ -47,13 +47,26 @@ constructor(){
 
 
     uploadFile = (file, post) => {
+        // const my_uploader = new MyUploader(file, 'http://localhost:3000/rails/active_storage/direct_uploads')
         const upload = new DirectUpload(file, 'http://localhost:3000/rails/active_storage/direct_uploads')
+       
         upload.create((error, blob)=> {
             if (error){
                 console.log(error)
             }else{
-                console.log("there is no error")
-            }
+                fetch(`http://localhost:3000/posts/image/${post.id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                image: blob.signed_id
+            })
+            })
+            .then(response => response.json())
+            .then(response => this.setState({returnedImageUrl: response.image}))
+            // .then(this.props.history.push("/your-posts"))
+            
+        }
         })
     }
 
@@ -80,9 +93,11 @@ constructor(){
         })
         .then (response => response.json())
         .then(newPostObj => {
-           
+          console.log(this.state.photo)
             this.props.createPost(newPostObj)
-            this.props.history.push("/your-posts")
+            this.uploadFile(this.state.photo, newPostObj)
+            
+            
             
         })
     }
@@ -102,6 +117,7 @@ constructor(){
             </Col>
             <Col>
             <h1>New Post Details</h1>
+            <img src={this.state.returnedImageUrl}/>
         <form onSubmit={this.handleSubmit}>
             
             <input   onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title Your Post"/><br></br> <br></br>
@@ -113,7 +129,7 @@ constructor(){
             <input  onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description"/><br></br> <br></br>
             <input  onChange={this.handleInputChange} value={this.state.authors_rating} name= {"authors_rating"} placeholder="Author's Rating"/><br></br> <br></br>
             <input  onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Video Link"/><br></br> <br></br>
-            <input type="file" name={"photo"} onChange={this.handleInputChange} />
+            <input type="file" directUpload={true} name={"photo"} onChange={this.handleInputChange} />
             <br></br>
             <br></br>
             <input type='submit' className="btn btn-secondary" value="Create New Post" />

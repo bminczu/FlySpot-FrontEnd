@@ -10,3 +10,10 @@ export const updateMyPost = (post) => {
         post: post
     }
 }
+
+export const deletePost = (id) => {
+    return {
+        type: "DELETE_POST",
+        id: id
+    }
+}

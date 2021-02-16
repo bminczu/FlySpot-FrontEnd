@@ -14,6 +14,11 @@ class showPublicPost extends React.Component{
     }
 
 
+    componentDidMount(){
+        fetch(`http://localhost:3000/posts/${this.props.selectPublicPost.id}`)
+    
+        .then(console.log)
+    }
 
     renderReviews = () => {
         return this.props.selectPublicPostReviews.map(reviewObj => {
