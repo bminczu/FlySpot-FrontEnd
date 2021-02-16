@@ -59,6 +59,8 @@ class NewPostForm extends React.Component{
             
         })
     }
+
+   
     render(){
         return(
             
@@ -86,6 +88,8 @@ class NewPostForm extends React.Component{
         <input  onChange={this.handleInputChange} value={this.state.authors_rating} name= {"authors_rating"} placeholder="Author's Rating"/><br></br> <br></br>
         <input  onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Video Link"/><br></br> <br></br>
         <input type='submit' className="btn btn-secondary" value="Create New Post" />
+        
+
         </form>
             
             </Col>
@@ -102,11 +106,13 @@ class NewPostForm extends React.Component{
 const mapStateToProps = (state) => {
     return {
         currentUser: state.currentUser
+        
     }
 }
 
 const mapDispatchToProps = { 
     createPost: createPost
+
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NewPostForm)
 

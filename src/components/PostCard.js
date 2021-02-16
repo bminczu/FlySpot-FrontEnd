@@ -3,6 +3,7 @@ import {Card, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {selectMyPost} from '../actions/selectMyPost'
 import {withRouter} from 'react-router-dom'
+import {deletePost} from '../actions/createPost'
 
 class PostCard extends React.Component{
 
@@ -11,6 +12,22 @@ class PostCard extends React.Component{
         this.props.history.push(`/edit-your-post/${e.target.id}`)
         
     }
+
+    handleDeletePost = (e) => {
+        const id = parseInt(e.target.id)
+       
+        fetch(`http://localhost:3000/posts/${id}`, {
+            method: "DELETE"
+          
+        })
+        .then(resp => resp.json())
+        .then(() => {
+            this.props.deletePost(id)
+         console.log(id)
+        
+        })
+    }
+
 
     render(){
         
@@ -33,6 +50,7 @@ class PostCard extends React.Component{
                 <p> Longitude: {longitude}</p>
                 </Card.Text>
                 <Button onClick={this.redirectToEdit} id={id} variant="btn btn-secondary">Edit</Button>
+                <Button id={id} onClick={this.handleDeletePost}> delete </Button>
             </Card.Body>
             </Card>
             
@@ -49,7 +67,8 @@ class PostCard extends React.Component{
 
 const mapDispatchToProps = {
 
-    selectMyPost: selectMyPost
+    selectMyPost: selectMyPost,
+    deletePost: deletePost
 }
 
 export default connect(null, mapDispatchToProps)(withRouter(PostCard))

@@ -8,6 +8,9 @@ const posts = (state=[], action) => {
             return action.user.posts
         case "CREATE_POST":
         return [...state, action.post]
+        case "DELETE_POST":
+            updatedPosts = state.filter(post => post.id !== action.id)
+                    return updatedPosts
         case "UPDATE_MY_POST":
             updatedPosts = state.map(postObj => {
                 if (postObj.id == action.post.id) {
