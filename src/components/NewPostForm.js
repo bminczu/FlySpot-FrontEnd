@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { createPost } from '../actions/createPost'
+// import MapContainer from './MapContainer'
 
 class NewPostForm extends React.Component{
 
@@ -61,18 +62,22 @@ class NewPostForm extends React.Component{
         return(
 
            
-        <div className="new-post">
+        <div className="">
+            {/* <div>
+            <MapContainer/>
+
+            </div> */}
           <form onSubmit={this.handleSubmit}>
              <input   onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title Your Post"/><br></br> <br></br>
              <input  onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/><br></br> <br></br>
              <input  onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/><br></br> <br></br>
              <input  onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.category} name= {"category"} placeholder="category"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="airspace"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="description"/><br></br> <br></br>
+             <input  onChange={this.handleInputChange} value={this.state.category} name= {"category"} placeholder="Category"/><br></br> <br></br>
+             <input  onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="Airspace"/><br></br> <br></br>
+             <input  onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description"/><br></br> <br></br>
              <input  onChange={this.handleInputChange} value={this.state.authors_rating} name= {"authors_rating"} placeholder="Author's Rating"/><br></br> <br></br>
              <input  onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Video Link"/><br></br> <br></br>
-            <input type='submit' class="btn btn-info" value="Create New Post" />
+            <input type='submit' className="btn btn-secondary" value="Create New Post" />
            </form>
         </div>
          )

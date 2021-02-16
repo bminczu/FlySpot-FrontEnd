@@ -5,6 +5,7 @@ import publicPostsReducer from './publicPosts'
 import selectMyPostReducer from './selectMyPost'
 import selectPublicPostReducer from './selectPublicPost'
 import selectPublicPostReviewsReducer from './selectPublicPostReviews'
+import selectReviewReducer from './selectReview'
 
 export default combineReducers({
     currentUser: currentUserReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
     selectMyPost: selectMyPostReducer,
     publicPosts: publicPostsReducer,
     selectPublicPost: selectPublicPostReducer,
-    selectPublicPostReviews: selectPublicPostReviewsReducer
+    selectPublicPostReviews: selectPublicPostReviewsReducer,
+    selectReview: selectReviewReducer
 })

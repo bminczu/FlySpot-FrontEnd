@@ -67,7 +67,7 @@ class EditPostForm extends React.Component {
              <input  onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="description"/><br></br> <br></br>
              <input  onChange={this.handleInputChange} value={this.state.authors_rating} name= {"authors_rating"} placeholder="Author's Rating"/><br></br> <br></br>
              <input  onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Video Link"/><br></br> <br></br>
-            <input type='submit' class="btn btn-info"  id={this.state.id} value="Update Post" />
+            <input type='submit' className="btn btn-secondary"  id={this.state.id} value="Update Post" />
            </form>
         </div>
             )

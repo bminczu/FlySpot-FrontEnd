@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {signinUser} from '../actions/signinUser'
+import {Form} from 'react-bootstrap'
+
 
 class SignIn extends React.Component{
 
@@ -48,18 +50,27 @@ handleSubmit = (e) => {
 
     render(){
         return(
-        <div className="sign-in">
-            <h1> Welcome</h1>
-            <h2> Please Log In</h2>
+
+           
+
+
+            
+        <div className="background">
+            <div className="whitefont">
+                <h1> Welcome</h1>
+                <h2> Please Log In</h2>
+            </div>
+           
+            <br></br>
+            <br></br>
             {this.state.error ? <h5 style={{color: "red"}}>{this.state.error}</h5> : null}
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <input  name={'username'}  onChange={this.handleInputChange} value={this.state.username} placeholder="Enter your username"/> <br></br> <br></br>
-                    <input  name={'password'}  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
-                 </div>
-                 <button type="submit" class="btn btn-info">Log In</button>
-                 <button type="submit" onClick={this.redirectToSignUp} class="btn btn-info">Sign up</button>
-    
+                    <input  type="password" name={'password'}  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
+                </div>
+                 <button type="submit" class="btn btn-secondary">Log In</button>
+                 <button type="submit" onClick={this.redirectToSignUp} class="btn btn-secondary">Sign up</button>
             </form>
         </div>
         )

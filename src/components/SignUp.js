@@ -29,7 +29,7 @@ handleSubmit = (e) => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
             username: this.state.username,
-            password_digest: this.state.password,
+            password: this.state.password,
           
         })
     })
@@ -50,15 +50,18 @@ handleSubmit = (e) => {
 
     render(){
         return(
-        <div className="sign-up">
-            <h2> Please Sign Up</h2>
+        <div className="background">
+            <div className="whitefont">
+                <h1> Welcome</h1>
+                <h2> Please Sign Up</h2>
+            </div>
             {this.state.error ? <h5 style={{color: "red"}}>{this.state.error}</h5> : null}
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <input  name='username'  onChange={this.handleInputChange} value={this.state.username} placeholder="Enter unique username"/> <br></br> <br></br>
-                    <input  name='password'  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
+                    <input  type="password" name='password'  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
                  </div>
-                 <button type="submit" class="btn btn-info">Create User</button>
+                 <button type="submit" class="btn btn-secondary">Create User</button>
     
             </form>
         </div>
