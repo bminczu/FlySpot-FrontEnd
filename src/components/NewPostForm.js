@@ -3,10 +3,12 @@ import {connect} from 'react-redux'
 import { createPost } from '../actions/createPost'
 import MapContainer from './MapContainer'
 import {Button, Container, Col, Row, Card} from 'react-bootstrap'
+import { DirectUpload } from 'activestorage';
 
 class NewPostForm extends React.Component{
-
-    state = {
+constructor(){
+    super()
+    this.state = {
         title: "",
         user_id: '',
         address: "",
@@ -16,10 +18,21 @@ class NewPostForm extends React.Component{
         airspace: "",
         description: "",
         authors_rating: '',
-        video: ''
+        video: '',
+        photo: {}
+    }
     }
 
     handleInputChange = (e) => {
+        if(e.target.name === 'photo') {
+            this.setState({
+                [e.target.name]: e.target.files[0]
+            })
+        } else {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        }
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -30,6 +43,20 @@ class NewPostForm extends React.Component{
             [e.target.name]: parseInt(e.target.value)
         })
     }
+
+
+
+    uploadFile = (file, post) => {
+        const upload = new DirectUpload(file, 'http://localhost:3000/rails/active_storage/direct_uploads')
+        upload.create((error, blob)=> {
+            if (error){
+                console.log(error)
+            }else{
+                console.log("there is no error")
+            }
+        })
+    }
+
 
 
     handleSubmit = (e) => {
@@ -75,17 +102,21 @@ class NewPostForm extends React.Component{
             </Col>
             <Col>
             <h1>New Post Details</h1>
-            <form onSubmit={this.handleSubmit}>
-        <input   onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title Your Post"/><br></br> <br></br>
-        <input  onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/><br></br> <br></br>
-        <input  onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/><br></br> <br></br>
-        <input  onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/><br></br> <br></br>
-        <input  onChange={this.handleInputChange} value={this.state.category} name= {"category"} placeholder="Category"/><br></br> <br></br>
-        <input  onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="Airspace"/><br></br> <br></br>
-        <input  onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description"/><br></br> <br></br>
-        <input  onChange={this.handleInputChange} value={this.state.authors_rating} name= {"authors_rating"} placeholder="Author's Rating"/><br></br> <br></br>
-        <input  onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Video Link"/><br></br> <br></br>
-        <input type='submit' className="btn btn-secondary" value="Create New Post" />
+        <form onSubmit={this.handleSubmit}>
+            
+            <input   onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title Your Post"/><br></br> <br></br>
+            <input  onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/><br></br> <br></br>
+            <input  onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/><br></br> <br></br>
+            <input  onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/><br></br> <br></br>
+            <input  onChange={this.handleInputChange} value={this.state.category} name= {"category"} placeholder="Category"/><br></br> <br></br>
+            <input  onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="Airspace"/><br></br> <br></br>
+            <input  onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description"/><br></br> <br></br>
+            <input  onChange={this.handleInputChange} value={this.state.authors_rating} name= {"authors_rating"} placeholder="Author's Rating"/><br></br> <br></br>
+            <input  onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Video Link"/><br></br> <br></br>
+            <input type="file" name={"photo"} onChange={this.handleInputChange} />
+            <br></br>
+            <br></br>
+            <input type='submit' className="btn btn-secondary" value="Create New Post" />
         </form>
             
             </Col>
