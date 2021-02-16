@@ -48,24 +48,24 @@ export class MapContainer extends Component {
     }
 
     return (
-      <div id='googleMaps'>
+      <div  id='googleMaps'>
         <PlacesAutocomplete
           value={this.state.address}
           onChange={this.handleChange}
           onSelect={this.handleSelect}
-        >
+          >
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div>
+              <div> 
+                <h2>Latitude: {this.state.mapCenter.lat}</h2>
+                <h2>Longitude: {this.state.mapCenter.lng}</h2>
+              </div>
               <input
                 {...getInputProps({
                   placeholder: 'Search Places ...',
                   className: 'location-search-input',
                 })}
-              />
-              <div> 
-                <h2>Latitude: {this.state.mapCenter.lat}</h2>
-                <h2>Longitude: {this.state.mapCenter.lng}</h2>
-              </div>
+                />
               <div className="autocomplete-dropdown-container">
                 {loading && <div>Loading...</div>}
                 {suggestions.map(suggestion => {
@@ -78,10 +78,10 @@ export class MapContainer extends Component {
                     : { backgroundColor: '#ffffff', cursor: 'pointer' };
                   return (
                     <div
-                      {...getSuggestionItemProps(suggestion, {
-                        className,
-                        style,
-                      })}
+                    {...getSuggestionItemProps(suggestion, {
+                      className,
+                      style,
+                    })}
                     >
                       <span>{suggestion.description}</span>
                     </div>
@@ -103,7 +103,7 @@ export class MapContainer extends Component {
             lat: this.state.mapCenter.lat,
             lng: this.state.mapCenter.lng
           }}
-        >
+          >
           <Marker 
             position={{
               lat: this.state.mapCenter.lat,

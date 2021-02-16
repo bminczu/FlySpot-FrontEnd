@@ -64,7 +64,7 @@ class NewPostForm extends React.Component{
             
 
 
-            <Container>
+            <Container >
             <br></br>
             <br></br>
         <Row>
