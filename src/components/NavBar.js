@@ -26,8 +26,9 @@ class NavBar extends React.Component{
     
     
       return (
-        
-      <div className="NavButtons">
+       
+        <div class="container-fluid">
+      <div className="nav-div">
         <nav className="navbar navbar-light bg-light">
           {this.props.currentUser ? 
           <div>
@@ -41,6 +42,7 @@ class NavBar extends React.Component{
         } 
         </nav>
       </div>
+      </div> 
        
        
        );

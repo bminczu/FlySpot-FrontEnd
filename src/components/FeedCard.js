@@ -28,29 +28,23 @@ class FeedCard extends React.Component{
 
 
 
-                <div className="feed-card" class="container">
+             <div className="feed-card" class="container">
                 
-                    <div  class="col-md">
-                <Card >
-                    {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                 <div  class="col-md">
+                    <Card >
                         <Card.Body className="feed-card" >
                         <Card.Title>{title}</Card.Title>
                         <Card.Text>
-                        <h1> {title}</h1>
-                        <h2>{category}</h2>
-                        <p>{description}</p>
-                        {/* <p>Airspace Class: {airspace}</p>
-                        <p>Address: {address}</p>
-                        <p>Latitude:  {latitude}</p>
-                        <p> Longitude: {longitude}</p> */}
+                            <h1> {title}</h1>
+                            <h2>{category}</h2>
+                            <p>{description}</p>
                         </Card.Text>
-                        <Button onClick={this.handleShowPost} id={id} >View</Button>
-
+                        <Button  className="btn btn-secondary" onClick={this.handleShowPost} id={id} >View</Button>
                     </Card.Body>
                     </Card>
                    
                 </div>
-                </div>
+            </div>
 
 
         )

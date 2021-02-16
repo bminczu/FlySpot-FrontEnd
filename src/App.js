@@ -14,6 +14,7 @@ import EditReviewForm from './components/EditReviewForm'
 import {connect} from 'react-redux'
 import {currentUser} from './actions/signinUser'
 import './App.css';
+import MapContainer from './components/MapContainer'
 
 
 class App extends React.Component { 
@@ -57,6 +58,7 @@ class App extends React.Component {
           <Route exact path="/show-post/:id" component={showPublicPost} />
           <Route exact path="/review-post/:id" component={ReviewPublicPost} />
           <Route exact path="/edit-review/:id" component={EditReviewForm} />
+          <Route exact path="/map" component={MapContainer} />
         </Switch> 
       </div>
  </BrowserRouter>
