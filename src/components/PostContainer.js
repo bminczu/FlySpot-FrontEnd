@@ -15,8 +15,8 @@ class PostContainer extends React.Component{
 
         return(
             <div>
-            <h1>YOUR POSTS</h1>
             <div className="form-background">
+            <h1>YOUR POSTS</h1>
 
                 {this.renderPosts()}
             </div>

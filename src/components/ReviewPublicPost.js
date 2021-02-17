@@ -64,9 +64,7 @@ class ReviewPublicPost extends React.Component{
                     <br></br>
                         <textarea class="form-control" onChange={this.handleInputChange} value={this.state.comment} name= {"comment"} placeholder="Leave some feedback" rows="3"></textarea> 
                         <br></br>
-                     {/* <input   onChange={this.handleInputChange} value={this.state.comment}  name= {"comment"} placeholder="Leave somme feedback.."/><br></br> <br></br> */}
-                     {/* <input  onChange={this.handleInputChange} value={this.state.rating} name= {"rating"} placeholder="Rating 1 to 5"/><br></br> <br></br> */}
-                     <select onChange={this.handleStarInput} value={this.state.rating} name= {"rating"} placeholder="Rating 1 to 5" class="form-control">
+                     <select onChange={this.handleStarInput} value={this.state.rating} name= {"user_rating"} placeholder="Rating 1 to 5" class="form-control">
                         <option selected>Your rating out of 5</option>
                         <option>⭐</option>
                         <option>⭐⭐</option>

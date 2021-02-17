@@ -35,8 +35,8 @@ class PostCard extends React.Component{
         return(
 
 
-    <div className="feed-card" class="container">
-        <Card style={{ width: '70rem'}}>
+    <div className="feed-card">
+        <Card>
         <Card.Header><h1>{title}</h1></Card.Header>
         <Card.Img variant="top" src={image_url} />
             <Card.Body className="feed-card">

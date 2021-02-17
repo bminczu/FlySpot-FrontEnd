@@ -33,6 +33,22 @@ class NewPostForm extends React.Component{
         })
     }
 
+    handleStarInput=(e)=>{
+        let rating;
+        if (e.target.value === "⭐") {
+            rating = 1
+        } else if (e.target.value === "⭐⭐") {
+            rating = 2
+        } else if (e.target.value === "⭐⭐⭐") {
+            rating = 3
+        } else if (e.target.value === "⭐⭐⭐⭐"){
+            rating = 4
+        } else if (e.target.value === "⭐⭐⭐⭐⭐") {
+            rating = 5
+        }
+        this.setState({authors_rating: rating})
+       
+    }
 
     handleSubmit = (e) => {
         console.log(this.state)
@@ -91,14 +107,14 @@ class NewPostForm extends React.Component{
                 <br></br>
                     <input  class="form-control" onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/>
                 <br></br>
-                    <select onChange={this.handleInputChange} value={this.state.authors_rating} name= {"authors_rating"} placeholder="Author's Rating" class="form-control">
-                        <option selected>Author's Rating</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select><br></br>
+                <select onChange={this.handleStarInput} value={this.state.authors_rating} name= {"user_rating"} placeholder="Rating 1 to 5" class="form-control">
+                        <option selected>Your rating out of 5</option>
+                        <option>⭐</option>
+                        <option>⭐⭐</option>
+                        <option>⭐⭐⭐</option>
+                        <option>⭐⭐⭐⭐</option>
+                        <option>⭐⭐⭐⭐⭐</option>
+                    </select>
                 <input  class="form-control" onChange={this.handleInputChange} value={this.state.image_url} name= {"image_url"} placeholder="Photo URL"/>
                 <br></br>
                         </div><div class="form-group col-md-6">

@@ -30,8 +30,16 @@
   }
 
 
+.card {
+  margin-top: 25px;
+}
 
-
+.my-post-card {
+  margin-top: 25px;
+  
+  margin-left: 500px;
+  
+}
 
 .nav-div{
   background: linear-gradient(0deg, rgba(84,93,250,1) 0%, rgba(42,152,254,1) 100%);

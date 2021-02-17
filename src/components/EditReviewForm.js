@@ -32,11 +32,26 @@ class EditReviewForm extends React.Component{
         })
         .then(response => response.json())
         .then(updatedReview => {
-            console.log(updatedReview)
             this.props.updateReview(updatedReview)
             this.props.history.goBack()
         })
 
+    }
+    handleStarInput=(e)=>{
+        let rating;
+        if (e.target.value === "⭐") {
+            rating = 1
+        } else if (e.target.value === "⭐⭐") {
+            rating = 2
+        } else if (e.target.value === "⭐⭐⭐") {
+            rating = 3
+        } else if (e.target.value === "⭐⭐⭐⭐"){
+            rating = 4
+        } else if (e.target.value === "⭐⭐⭐⭐⭐") {
+            rating = 5
+        }
+        this.setState({user_rating: rating})
+       
     }
 
     render(){
@@ -44,13 +59,39 @@ class EditReviewForm extends React.Component{
 
         return(
 
-            <div>
+
+           
+             <div  className="new-review">
+                 <h1>Update your review..</h1>
                 <form className="form" onSubmit={this.handleSubmit}>
+                    <br></br>
+                    <textarea class="form-control" onChange={this.handleInputChange} value={this.state.comment} name= {"comment"} placeholder="Leave some feedback" rows="3"></textarea> 
+                    <br></br>
+                    <select onChange={this.handleStarInput} value={this.state.user_rating} name= {"user_rating"} placeholder="Rating 1 to 5" class="form-control">
+                        <option selected>Your rating out of 5</option>
+                        <option>⭐</option>
+                        <option>⭐⭐</option>
+                        <option>⭐⭐⭐</option>
+                        <option>⭐⭐⭐⭐</option>
+                        <option>⭐⭐⭐⭐⭐</option>
+                    </select>
+                    <input type='submit' class="btn btn-secondary"  value="Update Post" />
+                </form>
+            </div>
+       
+
+
+
+
+
+
+            // <div>
+                /* <form className="form" onSubmit={this.handleSubmit}>
                      <input   onChange={this.handleInputChange} value={this.state.comment}  name= {"comment"} placeholder="Leave somme feedback.."/><br></br> <br></br>
                      <input  onChange={this.handleInputChange} value={this.state.rating} name= {"user_rating"} placeholder="Rating 1 to 5"/><br></br> <br></br>
                      <input type='submit' class="btn btn-info"  value="Update Post" />
                 </form>
-            </div>
+            </div> */
         )
 
     }
