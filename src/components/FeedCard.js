@@ -19,7 +19,7 @@ class FeedCard extends React.Component{
 
     render(){
         
-        const {title, id, address, latitude, longitude, category, description, airspace } = this.props.post
+        const {image_url, title, id, address, latitude, longitude, category, description, airspace } = this.props.post
         return(
 
 
@@ -36,6 +36,7 @@ class FeedCard extends React.Component{
                         <Card.Title>{title}</Card.Title>
                         <Card.Text>
                             <h1> {title}</h1>
+                            <img src={image_url} width="400px" height="300px"></img>
                             <h2>{category}</h2>
                             <p>{description}</p>
                         </Card.Text>

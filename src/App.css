@@ -14,30 +14,19 @@
   background-size: cover;
 }
 
-
+.form-background{
+  background-image: url('/Users/bartminczuk/Flatiron/Mod5-Project/front-end-drone/src/images/BackgroundForMod5 2.jpg')
+}
 .feed-card-background {
   background-image: url('/Users/bartminczuk/Flatiron/Mod5-Project/front-end-drone/src/images/BackgroundForMod5 2.jpg');
+  max-width: 100%;
 }
 
 .feed-card {
   background: linear-gradient(0deg, rgba(54,50,50,1) 0%, rgba(227,227,227,1) 53%, rgba(0,0,0,1) 100%);
-
 }
 
-/* .form-background { */
-   /* The image used
-  background-image: url(/Users/bartminczuk/Flatiron/Mod5-Project/front-end-drone/src/images/BackgroundForMod5 2.jpg);
-  height: 100%;
-  width: 100%;
-  position: inherit;
-  top: 0;
-  /* Full height */
-  /* height: 100%;  */
-  /* Center and scale the image nicely */
-  /* background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */ 
-/* } */
+
 
 .nav-div{
   background: linear-gradient(0deg, rgba(84,93,250,1) 0%, rgba(42,152,254,1) 100%);
@@ -50,6 +39,9 @@
   color: 	#C0C0C0
 }
 
+.btn{
+  margin: 5px;
+}
        
 
 

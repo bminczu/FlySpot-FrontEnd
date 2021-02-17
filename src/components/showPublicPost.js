@@ -23,7 +23,7 @@ class showPublicPost extends React.Component{
     }
     render(){
 
-        const {id, title, address, latitude, longitude, category, airspace, description, authors_rating, video} = this.props.selectPublicPost
+        const {image_url, id, title, address, latitude, longitude, category, airspace, description, authors_rating, video} = this.props.selectPublicPost
       
   
      
@@ -38,6 +38,7 @@ class showPublicPost extends React.Component{
                 <Col>      
                     <div>
                     <h1>{title}</h1>
+                    <img width="400px" height="300px" src={image_url}></img>
                     <h5>Location Type: {category}</h5>
                     <p>Latitude & Longitude: {latitude} {longitude}</p>
                     <p> Address: {address}</p>

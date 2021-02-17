@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {updateMyPost} from '../actions/createPost'
+import MapContainer from './MapContainer'
+import {Button, Container, Col, Row, Card} from 'react-bootstrap'
 
 
 class EditPostForm extends React.Component {
@@ -56,20 +58,77 @@ class EditPostForm extends React.Component {
 
             
             return(
-        <div  className="new-post">
-          <form id={this.props.selectMyPost.id} className="form" onSubmit={this.handleSubmit}>
-             <input   onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title Your Post"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.category} name= {"category"} placeholder="category"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="airspace"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="description"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.authors_rating} name= {"authors_rating"} placeholder="Author's Rating"/><br></br> <br></br>
-             <input  onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Video Link"/><br></br> <br></br>
-            <input type='submit' className="btn btn-secondary"  id={this.state.id} value="Update Post" />
-           </form>
-        </div>
+                <Container >
+                <br></br>
+                <br></br>
+            <Row>
+                <Col>      
+                    <div>
+                     <MapContainer/>
+                     </div>
+                </Col>
+                <br></br>
+                <Col>
+                <div>
+            <form onSubmit={this.handleSubmit}>
+             <label for="inputAddress">Title Your Post</label>
+                <input type="text" class="form-control" onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title Your Post"/><br></br> <br></br>
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input  class="form-control" onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/> 
+                    <br></br>
+                        <input  class="form-control" onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/>
+                    <br></br>
+                        <select onChange={this.handleInputChange} value={this.state.authors_rating} name= {"authors_rating"} placeholder="Author's Rating" class="form-control">
+                            <option selected>Author's Rating</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                            </div><div class="form-group col-md-6">
+                             <select onChange={this.handleInputChange} value={this.state.category} name= {"category"} placeholder="Category"class="form-control">
+                            <option selected>Area Category</option>
+                            <option>Urban</option>
+                            <option>Nature</option>
+                            <option>Industrial</option>
+                            <option>Park</option>
+                            <option>Other</option>
+                         </select>
+    
+                    <br></br>
+                        <input  class="form-control" onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/>
+                    <br></br>
+                    <select onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="Airspace" class="form-control">
+                        <option selected>Select Airspace Classification</option>
+                        <option>Class A</option>
+                        <option>Class B</option>
+                        <option>Class C</option>
+                        <option>Class D</option>
+                        <option>Class G</option>
+                    </select>
+                    <br></br>
+                    <div class="form-group col-md-4">
+                    </div>
+                    </div>
+                    
+    
+    
+               
+                    <textarea class="form-control" onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description" rows="3"></textarea> 
+                    <br></br>
+                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Youtube Video Link"/>
+                    <br></br>
+                </div>
+              
+                <button type="submit" class="btn btn-secondary">Submit</button>
+                </form>
+            </div>   
+                </Col>
+            </Row>
+        </Container>
+    
             )
         }
     }

@@ -14,11 +14,12 @@ class PostContainer extends React.Component{
     render(){
 
         return(
-
-
+            <div>
+            <h1>YOUR POSTS</h1>
             <div className="form-background">
 
                 {this.renderPosts()}
+            </div>
             </div>
         )
     }

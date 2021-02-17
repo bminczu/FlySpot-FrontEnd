@@ -17,8 +17,8 @@ export class MapContainer extends Component {
       selectedPlace: {},
   
       mapCenter: {
-        lat: 49.2827291,
-        lng: -123.1207375
+        lat: 41.8781,
+        lng: -87.6298
       }
     };
   }
@@ -39,16 +39,16 @@ export class MapContainer extends Component {
       })
       .catch(error => console.error('Error', error));
   };
- 
+  
   render() {
 
     const style = {
-      width: '100%',
-      height: '50%'
+      width: '90%',
+      height: '100%'
     }
 
     return (
-      <div  id='googleMaps'>
+      <div id='googleMaps'>
         <PlacesAutocomplete
           value={this.state.address}
           onChange={this.handleChange}
@@ -56,16 +56,16 @@ export class MapContainer extends Component {
           >
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div>
-              <div> 
-                <p>Latitude: {this.state.mapCenter.lat}</p>
-                <p>Longitude: {this.state.mapCenter.lng}</p>
-              </div>
+          <div> 
+            <h2>Latitude: {this.state.mapCenter.lat}</h2>
+            <h2>Longitude: {this.state.mapCenter.lng}</h2>
+          </div>
               <input
                 {...getInputProps({
                   placeholder: 'Search Places ...',
                   className: 'location-search-input',
                 })}
-                />
+              />
               <div className="autocomplete-dropdown-container">
                 {loading && <div>Loading...</div>}
                 {suggestions.map(suggestion => {

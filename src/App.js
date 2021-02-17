@@ -1,4 +1,5 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
 import {BrowserRouter } from 'react-router-dom';
 import {Route, Switch} from 'react-router-dom'
 import PostContainer from './components/PostContainer.js'
@@ -45,7 +46,7 @@ class App extends React.Component {
   render(){
     return(
    
-    <BrowserRouter>
+
       <div className="App">
         <NavBar/>
         <Switch>
@@ -61,7 +62,7 @@ class App extends React.Component {
           <Route exact path="/map" component={MapContainer} />
         </Switch> 
       </div>
- </BrowserRouter>
+ 
    )
   }
 }
@@ -70,4 +71,4 @@ const mapDispatchToProps = {
   currentUser: currentUser
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(withRouter(App));

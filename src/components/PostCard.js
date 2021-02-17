@@ -31,16 +31,17 @@ class PostCard extends React.Component{
 
     render(){
         
-        const {title, id, address, latitude, longitude, category, description, airspace } = this.props.post
+        const {image_url, title, id, address, latitude, longitude, category, description, airspace } = this.props.post
         return(
 
 
             <div className="feed-card" class="container">
         <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Img variant="top"/>
             <Card.Body className="feed-card">
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
+                <img src={image_url} width="400px" height="300px"></img>
                 <h1> {title}</h1>
                 <h2>{category}</h2>
                 <p>{description}</p>
@@ -49,8 +50,8 @@ class PostCard extends React.Component{
                 <p>Latitude:  {latitude}</p>
                 <p> Longitude: {longitude}</p>
                 </Card.Text>
-                <Button onClick={this.redirectToEdit} id={id} variant="btn btn-secondary">Edit</Button>
-                <Button id={id} onClick={this.handleDeletePost}> delete </Button>
+                <Button onClick={this.redirectToEdit} id={id} variant="btn btn-secondary">Edit</Button> 
+                <Button variant="btn btn-secondary" id={id}  onClick={this.handleDeletePost}> delete </Button>
             </Card.Body>
             </Card>
             
