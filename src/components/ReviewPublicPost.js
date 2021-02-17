@@ -40,8 +40,9 @@ class ReviewPublicPost extends React.Component{
     render(){
 
         return(
-
-            <div  className="new-post">
+            <div>
+                <img src="src/images/BackgroundForMod5 2.jpg" id="bg" alt=""></img>
+            <div  className="new-review">
                 <form className="form" onSubmit={this.handleSubmit}>
 
                     <br></br>
@@ -60,6 +61,7 @@ class ReviewPublicPost extends React.Component{
                      <input type='submit' class="btn btn-secondary"  id={this.props.selectPublicPost.id} value="Update Post" />
                 </form>
              </div>
+            </div>
 
 
 

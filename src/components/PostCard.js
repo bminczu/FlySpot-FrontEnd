@@ -35,28 +35,26 @@ class PostCard extends React.Component{
         return(
 
 
-            <div className="feed-card" class="container">
-        <Card>
-            <Card.Img variant="top"/>
+    <div className="feed-card" class="container">
+        <Card style={{ width: '70rem'}}>
+        <Card.Header><h1>{title}</h1></Card.Header>
+        <Card.Img variant="top" src={image_url} />
             <Card.Body className="feed-card">
-                <Card.Title>{title}</Card.Title>
                 <Card.Text>
-                <img src={image_url} width="400px" height="300px"></img>
-                <h1> {title}</h1>
-                <h2>{category}</h2>
-                <p>{description}</p>
+                <h2>Location Category: {category}</h2>
+                <br></br>
+                <h3>Address: {address}</h3>
+                <h3>Description: {description}</h3>
                 <p>Airspace Class: {airspace}</p>
-                <p>Address: {address}</p>
-                <p>Latitude:  {latitude}</p>
-                <p> Longitude: {longitude}</p>
+                <p>Latitude & Longitude: {latitude} {longitude}</p>
                 </Card.Text>
+                <br></br>
+            </Card.Body>
                 <Button onClick={this.redirectToEdit} id={id} variant="btn btn-secondary">Edit</Button> 
                 <Button variant="btn btn-secondary" id={id}  onClick={this.handleDeletePost}> delete </Button>
-            </Card.Body>
             </Card>
             
-            
-
+        
             </div>
 
 

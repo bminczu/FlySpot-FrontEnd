@@ -23,8 +23,13 @@
 }
 
 .feed-card {
-  background: linear-gradient(0deg, rgba(54,50,50,1) 0%, rgba(227,227,227,1) 53%, rgba(0,0,0,1) 100%);
-}
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
 
 
 
@@ -41,6 +46,15 @@
 
 .btn{
   margin: 5px;
+}
+
+.new-review{
+  height: 200px;
+  width: 50%;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
        
 

@@ -19,7 +19,7 @@ class FeedCard extends React.Component{
 
     render(){
         
-        const {image_url, title, id, address, latitude, longitude, category, description, airspace } = this.props.post
+        const {image_url, authors_rating, title, id, address, latitude, longitude, category, description, airspace } = this.props.post
         return(
 
 
@@ -28,24 +28,28 @@ class FeedCard extends React.Component{
 
 
 
-             <div className="feed-card" class="container">
                 
-                 <div  class="col-md">
-                    <Card >
-                        <Card.Body className="feed-card" >
-                        <Card.Title>{title}</Card.Title>
+                
+
+
+                <div className="feed-card">
+                    <br></br>
+                    <Card  style={{ width: '30rem'}}>
+                    <Card.Header>{title}</Card.Header>
+                    <Card.Img variant="top" src={image_url} />
+                    <Card.Body>
+                        {/* <Card.Title>{title}</Card.Title> */}
                         <Card.Text>
-                            <h1> {title}</h1>
-                            <img src={image_url} width="400px" height="300px"></img>
-                            <h2>{category}</h2>
-                            <p>{description}</p>
+                        {description}
+                        {authors_rating}
                         </Card.Text>
-                        <Button  className="btn btn-secondary" onClick={this.handleShowPost} id={id} >View</Button>
+                        <Button onClick={this.handleShowPost} id={id} variant="secondary">View</Button>
                     </Card.Body>
                     </Card>
-                   
                 </div>
-            </div>
+                  
+               
+          
 
 
         )
