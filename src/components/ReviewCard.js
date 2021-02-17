@@ -32,15 +32,27 @@ class ReviewCard extends React.Component{
         })
     }
 
-
+    renderStars = () => {
+        if (this.props.review.user_rating === 1) {
+            return "⭐" 
+        } else if (this.props.review.user_rating === 2) {
+        return "⭐⭐" 
+        } else if (this.props.review.user_rating === 3) {
+            return "⭐⭐⭐"
+        } else if (this.props.review.user_rating === 4) {
+         return "⭐⭐⭐⭐" 
+        } else if (this.props.review.user_rating === 5) {
+            return "⭐⭐⭐⭐⭐" }
+    }
     render(){
             const {id, user_id, comment, user_rating} = this.props.review
+
         return(
 
                 
             <Card> 
                  
-                users rating: {user_rating}/5 ⭐s <br></br>
+                users rating: { this.renderStars()}<br></br>
                 {comment} <br></br>
 
                 {user_id === this.props.currentUser.id ? 
