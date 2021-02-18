@@ -33,7 +33,7 @@ class ReviewPublicPost extends React.Component{
         .then( publicPostReview => {
             this.props.addReview(publicPostReview)
             // call action that adds new review to selectPublicPostReview
-            this.props.history.push(`/show-post/${this.props.selectPublicPost.id}`)
+            this.props.history.push(`/showpost/${this.props.selectPublicPost.id}`)
         })
     }
     handleStarInput=(e)=>{
@@ -72,7 +72,7 @@ class ReviewPublicPost extends React.Component{
                         <option>⭐⭐⭐⭐</option>
                         <option>⭐⭐⭐⭐⭐</option>
                     </select>
-                     <input type='submit' class="btn btn-secondary"  id={this.props.selectPublicPost.id} value="Update Post" />
+                     <input type='submit' class="btn btn-secondary"  id={this.props.selectPublicPost.id} value="Submit" />
                 </form>
              </div>
             </div>

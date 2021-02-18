@@ -1,6 +1,5 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import {BrowserRouter } from 'react-router-dom';
 import {Route, Switch} from 'react-router-dom'
 import PostContainer from './components/PostContainer.js'
 import NavBar from './components/NavBar'
@@ -50,15 +49,15 @@ class App extends React.Component {
       <div className="App">
         <NavBar/>
         <Switch>
-          <Route exact path="/your-posts" component={PostContainer} />
+          <Route exact path="/yourposts" component={PostContainer} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/feed" component={Feed} />
-          <Route exact path="/home/new-post" component={NewPostForm} />
-          <Route exact path="/edit-your-post/:id" component={EditPostForm} />
-          <Route exact path="/show-post/:id" component={showPublicPost} />
-          <Route exact path="/review-post/:id" component={ReviewPublicPost} />
-          <Route exact path="/edit-review/:id" component={EditReviewForm} />
+          <Route exact path="/home/newpost" component={NewPostForm} />
+          <Route exact path="/edityourpost/:id" component={EditPostForm} />
+          <Route exact path="/showpost/:id" component={showPublicPost} />
+          <Route exact path="/reviewpost/:id" component={ReviewPublicPost} />
+          <Route exact path="/editreview/:id" component={EditReviewForm} />
           <Route exact path="/map" component={MapContainer} />
         </Switch> 
       </div>

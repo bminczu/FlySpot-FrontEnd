@@ -13,7 +13,7 @@ class ReviewCard extends React.Component{
     handleEdit = (e) => {
         // console.log(e.target)
         this.props.selectReview(this.props.review)
-        this.props.history.push(`/edit-review/${this.props.review.id}`)
+        this.props.history.push(`/editreview/${this.props.review.id}`)
     }
 
 
@@ -28,7 +28,7 @@ class ReviewCard extends React.Component{
         .then(() => {
             this.props.deleteReview(id)
          console.log(id)
-            this.props.history.push(`/show-post/${this.props.selectPublicPost.id}`)
+            this.props.history.push(`/showpost/${this.props.selectPublicPost.id}`)
         })
     }
 

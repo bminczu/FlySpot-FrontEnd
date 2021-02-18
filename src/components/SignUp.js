@@ -11,10 +11,6 @@ class SignUp extends React.Component{
         
     }
 
-    // directToFeed = () => {
-    //     this.props.history.push('/feed')
-    // }
-
 handleInputChange = (e) => {
     this.setState({
         [e.target.name]: e.target.value

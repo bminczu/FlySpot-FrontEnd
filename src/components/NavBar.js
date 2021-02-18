@@ -17,11 +17,11 @@ class NavBar extends React.Component{
       
     }
     handleCreatePost = () => {
-      this.props.history.push('/home/new-post')
+      this.props.history.push('/home/newpost')
     }
     
     handleShowYourPosts = () => {
-      this.props.history.push('/your-posts')
+      this.props.history.push('/yourposts')
     }
 
     handleDirectToFeed = () => {
@@ -48,42 +48,6 @@ class NavBar extends React.Component{
         } 
         </nav>
       </div>
-
-
-
-
-
-
-
-
-
-        // <div className="nav-div">
-        //   {this.props.currentUser ? 
-        // <Container fluid>
-        // <Navbar collapseOnSelect expand="lg" bg="light" variant="light" fixed="top">
-
-        //   <Col className="text-center" lg={3}>
-        //   <button  type="button" className="btn btn-secondary" onClick={this.handleCreatePost} >Create Post</button>
-        //   </Col>
-
-        //   <Col className="text-center" lg={3}>
-        //   <button  type="button" className="btn btn-secondary" onClick={this.handleDirectToFeed} >Feed</button>
-        //   </Col>
-
-        //   <Col className="text-center" lg={3}>
-        //   <button  type="button" className="btn btn-secondary" onClick={this.handleShowYourPosts} >View Your Posts</button>
-        //   </Col>
-
-        //   <Col className="text-center" lg={3}>
-        //   <button type="button" className="btn btn-light" onClick={this.handleLogOut}>Sign Out</button>
-        //   </Col>
-        //   </Navbar>
-        //   </Container>
-        //   :
-        //   null}
-        //   </div>
-
-       
   
        );
       };

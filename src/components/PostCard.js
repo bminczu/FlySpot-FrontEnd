@@ -9,7 +9,7 @@ class PostCard extends React.Component{
 
     redirectToEdit = (e) => {
         this.props.selectMyPost(this.props.post)
-        this.props.history.push(`/edit-your-post/${e.target.id}`)
+        this.props.history.push(`/edityourpost/${e.target.id}`)
         
     }
 
@@ -56,7 +56,7 @@ class PostCard extends React.Component{
                 <br></br>
             </Card.Body>
                 <Button onClick={this.redirectToEdit} id={id} variant="btn btn-secondary">Edit</Button> 
-                <Button variant="btn btn-secondary" id={id}  onClick={this.handleDeletePost}> delete </Button>
+                <Button variant="btn btn-secondary" id={id}  onClick={this.handleDeletePost}> Delete </Button>
             </Card>
             
         

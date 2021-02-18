@@ -12,7 +12,7 @@ class FeedCard extends React.Component{
         const id = e.target.id
         this.props.selectPublicPost(this.props.post)
         this.props.selectPublicPostReviews(this.props.post.reviews)
-        this.props.history.push(`/show-post/${id}`)
+        this.props.history.push(`/showpost/${id}`)
     }
 
     renderStars = () => {
@@ -52,7 +52,7 @@ class FeedCard extends React.Component{
                         <Card.Text className="card-text">
                         <h5>Description:</h5>
                         <p>{description}</p>
-                        <h6>Author's Rating{this.renderStars()}</h6>
+                        <h6>Author's Rating: {this.renderStars()}</h6>
                         </Card.Text>
                         <Button onClick={this.handleShowPost} id={id} variant="secondary">View</Button>
                     </Card.Body>

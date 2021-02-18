@@ -72,7 +72,7 @@ class EditPostForm extends React.Component {
                 console.log(updatedPost)
              
                 this.props.updateMyPost(updatedPost)
-                this.props.history.push('/your-posts')
+                this.props.history.push('/yourposts')
             })
         }
         render(){
