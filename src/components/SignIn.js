@@ -57,7 +57,13 @@ handleSubmit = (e) => {
             
         <div className="background">
             <div className="whitefont">
-                <h1> Welcome</h1>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+
+                <h1> Welcome to FlySpot</h1>
+                <br></br>
                 <h2> Please Log In</h2>
             </div>
            

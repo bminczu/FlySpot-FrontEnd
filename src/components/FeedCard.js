@@ -46,12 +46,13 @@ class FeedCard extends React.Component{
                 <div className="feed-card">
                     <br></br>
                     <Card  style={{ width: '30rem'}}>
-                    <Card.Header>{title}</Card.Header>
+                    <Card.Header><h3>{title}</h3></Card.Header>
                     <Card.Img variant="top" src={image_url} />
                     <Card.Body>
                         <Card.Text className="card-text">
-                        <h5>{description}</h5>
-                        <h5>Author's Rating{this.renderStars()}</h5>
+                        <h5>Description:</h5>
+                        <p>{description}</p>
+                        <h6>Author's Rating{this.renderStars()}</h6>
                         </Card.Text>
                         <Button onClick={this.handleShowPost} id={id} variant="secondary">View</Button>
                     </Card.Body>

@@ -52,8 +52,13 @@ handleSubmit = (e) => {
         return(
         <div className="background">
             <div className="whitefont">
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <h1> Welcome</h1>
                 <h2> Please Sign Up</h2>
+                <br></br>
             </div>
             {this.state.error ? <h5 style={{color: "red"}}>{this.state.error}</h5> : null}
             <form onSubmit={this.handleSubmit}>

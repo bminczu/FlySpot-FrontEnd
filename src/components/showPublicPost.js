@@ -52,12 +52,15 @@ class showPublicPost extends React.Component{
                     <div>
                     <h1>{title}</h1>
                     <img width="400px" height="300px" src={image_url}></img>
-                    <h5>Location Type: {category}</h5>
-                    <p>Latitude & Longitude: {latitude} {longitude}</p>
-                    <p> Address: {address}</p>
-                    <p>Airspace CLassification: {airspace}</p>
-                    <p>Description: {description}</p>
                     <p>Author's Rating{this.renderStars()}</p>
+                    <h5>Location Category:</h5>
+                    <p>{category}</p>
+                    <h5>Coordinates: </h5>
+                    <p>{latitude} {longitude}</p>
+                    <h5> Address: </h5>
+                    <p>{address}</p>
+                    <h5>Airspace CLassification:</h5><p>{airspace}</p>
+                    <p> {description}</p>
                     </div>
                 </Col>
                 <Col>

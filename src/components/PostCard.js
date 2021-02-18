@@ -41,12 +41,17 @@ class PostCard extends React.Component{
         <Card.Img variant="top" src={image_url} />
             <Card.Body className="feed-card">
                 <Card.Text>
-                <h2>Location Category: {category}</h2>
+                <h3>Location Category: {category}</h3>
                 <br></br>
-                <h3>Address: {address}</h3>
-                <h3>Description: {description}</h3>
-                <h4>Airspace Class: {airspace}</h4>
-                <h4>Latitude & Longitude: {latitude} {longitude}</h4>
+                <h3>Address: </h3>
+                <p>{address}</p>
+                <h3>Description: </h3>
+                <p>{description}</p>
+                <h4>Airspace: </h4>
+                <p>{airspace}</p>
+              
+                <h4>Coordinates:</h4>
+                <p>{latitude} {longitude}</p>
                 </Card.Text>
                 <br></br>
             </Card.Body>
