@@ -52,7 +52,7 @@ class ReviewCard extends React.Component{
                 
             <Card> 
                  
-                users rating: { this.renderStars()}<br></br>
+                Peer rating: { this.renderStars()}<br></br>
                 {comment} <br></br>
 
                 {user_id === this.props.currentUser.id ? 
