@@ -15,7 +15,18 @@ class FeedCard extends React.Component{
         this.props.history.push(`/show-post/${id}`)
     }
 
-
+    renderStars = () => {
+        if (this.props.post.authors_rating === 1) {
+            return "⭐" 
+        } else if (this.props.post.authors_rating === 2) {
+        return "⭐⭐" 
+        } else if (this.props.post.authors_rating === 3) {
+            return "⭐⭐⭐"
+        } else if (this.props.post.authors_rating === 4) {
+         return "⭐⭐⭐⭐" 
+        } else if (this.props.post.authors_rating === 5) {
+            return "⭐⭐⭐⭐⭐" }
+    }
 
     render(){
         
@@ -38,10 +49,9 @@ class FeedCard extends React.Component{
                     <Card.Header>{title}</Card.Header>
                     <Card.Img variant="top" src={image_url} />
                     <Card.Body>
-                        {/* <Card.Title>{title}</Card.Title> */}
-                        <Card.Text>
-                        {description}
-                        {authors_rating}
+                        <Card.Text className="card-text">
+                        <h5>{description}</h5>
+                        <h5>Author's Rating{this.renderStars()}</h5>
                         </Card.Text>
                         <Button onClick={this.handleShowPost} id={id} variant="secondary">View</Button>
                     </Card.Body>

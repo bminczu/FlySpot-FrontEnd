@@ -21,6 +21,19 @@ class showPublicPost extends React.Component{
         })
         
     }
+
+    renderStars = () => {
+        if (this.props.selectPublicPost.authors_rating === 1) {
+            return "⭐" 
+        } else if (this.props.selectPublicPost.authors_rating === 2) {
+        return "⭐⭐" 
+        } else if (this.props.selectPublicPost.authors_rating === 3) {
+            return "⭐⭐⭐"
+        } else if (this.props.selectPublicPost.authors_rating === 4) {
+         return "⭐⭐⭐⭐" 
+        } else if (this.props.selectPublicPost.authors_rating === 5) {
+            return "⭐⭐⭐⭐⭐" }
+    }
     render(){
 
         const {image_url, id, title, address, latitude, longitude, category, airspace, description, authors_rating, video} = this.props.selectPublicPost
@@ -43,8 +56,8 @@ class showPublicPost extends React.Component{
                     <p>Latitude & Longitude: {latitude} {longitude}</p>
                     <p> Address: {address}</p>
                     <p>Airspace CLassification: {airspace}</p>
-                    <p>{description}</p>
-                    <p>{authors_rating}</p>
+                    <p>Description: {description}</p>
+                    <p>Author's Rating{this.renderStars()}</p>
                     </div>
                 </Col>
                 <Col>

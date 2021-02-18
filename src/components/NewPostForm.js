@@ -97,10 +97,10 @@ class NewPostForm extends React.Component{
             </Col>
             <br></br>
             <Col>
-            <div>
+            <div className="new-post-form">
         <form onSubmit={this.handleSubmit}>
-         <label for="inputAddress">Title Your Post</label>
-            <input type="text" class="form-control" onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title Your Post"/><br></br> <br></br>
+         <h5>Your New Fly Spot</h5>
+            <input type="text" class="form-control" onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title"/><br></br> <br></br>
                 <div class="form-row">
                 <div class="form-group col-md-6">
                     <input  class="form-control" onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/> 
@@ -108,13 +108,14 @@ class NewPostForm extends React.Component{
                     <input  class="form-control" onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/>
                 <br></br>
                 <select onChange={this.handleStarInput} value={this.state.authors_rating} name= {"user_rating"} placeholder="Rating 1 to 5" class="form-control">
-                        <option selected>Your rating out of 5</option>
+                        <option selected>Rate This Spot</option>
                         <option>⭐</option>
                         <option>⭐⭐</option>
                         <option>⭐⭐⭐</option>
                         <option>⭐⭐⭐⭐</option>
                         <option>⭐⭐⭐⭐⭐</option>
                     </select>
+                    <br></br>
                 <input  class="form-control" onChange={this.handleInputChange} value={this.state.image_url} name= {"image_url"} placeholder="Photo URL"/>
                 <br></br>
                         </div><div class="form-group col-md-6">
@@ -144,14 +145,13 @@ class NewPostForm extends React.Component{
                 <div class="form-group col-md-4">
                 </div>
                 </div>
-                
 
                 <br></br>
                 <textarea class="form-control" onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description" rows="3"></textarea> 
                 <br></br>
             </div>
           
-            <button type="submit" class="btn btn-secondary">Submit</button>
+            <button type="submit" class="btn btn-secondary">Post It</button>
             </form>
         </div>   
             </Col>

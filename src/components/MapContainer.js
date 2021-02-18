@@ -43,8 +43,8 @@ export class MapContainer extends Component {
   render() {
 
     const style = {
-      width: '90%',
-      height: '100%'
+      width: '80%',
+      height: '60%'
     }
 
     return (
@@ -56,10 +56,11 @@ export class MapContainer extends Component {
           >
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div>
-          <div> 
+              <h5>Check to see if  address is valid</h5>
+          {/* <div> 
             <h2>Latitude: {this.state.mapCenter.lat}</h2>
             <h2>Longitude: {this.state.mapCenter.lng}</h2>
-          </div>
+          </div> */}
               <input
                 {...getInputProps({
                   placeholder: 'Search Places ...',
@@ -92,8 +93,8 @@ export class MapContainer extends Component {
           )}
         </PlacesAutocomplete>
 
-        <Map 
-          style={style}
+        <Map
+          
           google={this.props.google}
           initialCenter={{
             lat: this.state.mapCenter.lat,
