@@ -4,6 +4,9 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import {connect} from 'react-redux'
+import {getMapCoordinates} from '../actions/getMapCoordinates'
+import { getMapAddress } from '../actions/getMapAddress';
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -11,42 +14,45 @@ export class MapContainer extends Component {
     this.state = {
       // for google map places autocomplete
       address: '',
-
+      
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
-  
+      
       mapCenter: {
         lat: 41.8781,
         lng: -87.6298
       }
     };
   }
-
+  
   handleChange = address => {
     this.setState({ address });
   };
- 
+  
   handleSelect = address => {
     this.setState({ address });
+    console.log(address)
+    
+    this.props.getMapAddress(address)
     geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => {
-        console.log('Success', latLng);
-
-        // update center state
-        this.setState({ mapCenter: latLng });
-      })
-      .catch(error => console.error('Error', error));
+    .then(results => getLatLng(results[0]))
+    .then(latLng => {
+      console.log('Success', latLng);
+      this.props.getMapCoordinates(latLng)
+      // update center state
+      this.setState({ mapCenter: latLng });
+    })
+    .catch(error => console.error('Error', error));
   };
   
   render() {
-
+    
     const style = {
       width: '80%',
       height: '60%'
     }
-
+    
     return (
       <div id='googleMaps'>
         <PlacesAutocomplete
@@ -56,27 +62,24 @@ export class MapContainer extends Component {
           >
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div>
+         
               <h5>Check to see if  address is valid</h5>
-          {/* <div> 
-            <h2>Latitude: {this.state.mapCenter.lat}</h2>
-            <h2>Longitude: {this.state.mapCenter.lng}</h2>
-          </div> */}
               <input
                 {...getInputProps({
                   placeholder: 'Search Places ...',
                   className: 'location-search-input',
                 })}
-              />
+                />
               <div className="autocomplete-dropdown-container">
                 {loading && <div>Loading...</div>}
                 {suggestions.map(suggestion => {
                   const className = suggestion.active
-                    ? 'suggestion-item--active'
-                    : 'suggestion-item';
+                  ? 'suggestion-item--active'
+                  : 'suggestion-item';
                   // inline style for demonstration purpose
                   const style = suggestion.active
-                    ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                    : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
                   return (
                     <div
                     {...getSuggestionItemProps(suggestion, {
@@ -112,10 +115,18 @@ export class MapContainer extends Component {
             }} />
         </Map>
       </div>
+      
     )
   }
 }
-  
+
+const mapDispatchToProps = {
+  getMapCoordinates: getMapCoordinates,
+  getMapAddress: getMapAddress
+}
+
+const connector = connect(null, mapDispatchToProps)(MapContainer);
+
   export default GoogleApiWrapper({
     apiKey: ('AIzaSyCdOsVIMuoabg1UXMupeirnXqpjhuvICXA')
-  })(MapContainer)
+  })(connector)

@@ -78,31 +78,14 @@ class EditReviewForm extends React.Component{
                     <input type='submit' class="btn btn-secondary"  value="Update Post" />
                 </form>
             </div>
-       
-
-
-
-
-
-
-            // <div>
-                /* <form className="form" onSubmit={this.handleSubmit}>
-                     <input   onChange={this.handleInputChange} value={this.state.comment}  name= {"comment"} placeholder="Leave somme feedback.."/><br></br> <br></br>
-                     <input  onChange={this.handleInputChange} value={this.state.rating} name= {"user_rating"} placeholder="Rating 1 to 5"/><br></br> <br></br>
-                     <input type='submit' class="btn btn-info"  value="Update Post" />
-                </form>
-            </div> */
         )
-
     }
 }
 
 const mapStateToProps = (state) => {
     return{
-
         selectReview: state.selectReview
     }
-
 }
 
 const mapDispatchToProps = {

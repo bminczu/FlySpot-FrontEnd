@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { createPost } from '../actions/createPost'
 import MapContainer from './MapContainer'
-import {Button, Container, Col, Row, Card} from 'react-bootstrap'
+import {Container, Col, Row} from 'react-bootstrap'
 
 class NewPostForm extends React.Component{
 
@@ -11,8 +11,8 @@ class NewPostForm extends React.Component{
         title: "",
         user_id: '',
         address: "",
-        latitude: '',
-        longitude: '',
+        latitude: "",
+        longitude: "",
         category: "",
         airspace: "",
         description: "",
@@ -79,11 +79,37 @@ class NewPostForm extends React.Component{
             
         })
     }
+renderLatitude = () => {
+    if (this.props.getMapCoordinates) {
+        return this.props.getMapCoordinates.lat 
+    
+    } else {
+        return this.state.latitude
+    }
+}
+
+renderLongitude = () => {
+    if (this.props.getMapCoordinates) {
+        return this.props.getMapCoordinates.lng 
+    
+    } else {
+        return this.state.longitude
+    }
+
+}
+
+renderAddress = () => {
+    if (this.props.getMapAddress) {
+        return this.props.getMapAddress
+    } else {
+        return this.state.address
+    }
+}
 
    
     render(){
+
         return(
-            
 
 
          <Container >
@@ -103,9 +129,9 @@ class NewPostForm extends React.Component{
             <input type="text" class="form-control" onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title"/><br></br> <br></br>
                 <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/> 
+                    <input  class="form-control" onChange={this.handleInputChange} value={this.renderAddress()} name= {"address"} placeholder="Address"/> 
                 <br></br>
-                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/>
+                    <input  class="form-control" onChange={this.handleInputChange} value={this.renderLatitude()} name= {"latitude"} placeholder="Latitude"/>
                 <br></br>
                 <select onChange={this.handleStarInput} value={this.state.authors_rating} name= {"user_rating"} placeholder="Rating 1 to 5" class="form-control">
                         <option selected>Rate This Spot</option>
@@ -129,7 +155,7 @@ class NewPostForm extends React.Component{
                      </select>
 
                 <br></br>
-                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/>
+                    <input  class="form-control" onChange={this.handleInputChange} value={this.renderLongitude()} name= {"longitude"} placeholder="Longitude"/>
                 <br></br>
                 <select onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="Airspace" class="form-control">
                     <option selected>Select Airspace Classification</option>
@@ -167,7 +193,9 @@ class NewPostForm extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        currentUser: state.currentUser
+        currentUser: state.currentUser,
+        getMapCoordinates: state.getMapCoordinates,
+        getMapAddress: state.getMapAddress
         
     }
 }

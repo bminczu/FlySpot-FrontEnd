@@ -30,19 +30,8 @@ class FeedCard extends React.Component{
 
     render(){
         
-        const {image_url, authors_rating, title, id, address, latitude, longitude, category, description, airspace } = this.props.post
+        const {image_url, title, id, description} = this.props.post
         return(
-
-
-
-
-
-
-
-                
-                
-
-
                 <div className="feed-card">
                     <br></br>
                     <Card  style={{ width: '30rem'}}>
@@ -58,11 +47,6 @@ class FeedCard extends React.Component{
                     </Card.Body>
                     </Card>
                 </div>
-                  
-               
-          
-
-
         )
     }
 }
