@@ -4,9 +4,6 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
-import {connect} from 'react-redux'
-import {getMapCoordinates} from '../actions/getMapCoordinates'
-import { getMapAddress } from '../actions/getMapAddress';
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -14,45 +11,36 @@ export class MapContainer extends Component {
     this.state = {
       // for google map places autocomplete
       address: '',
-      
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
-      
       mapCenter: {
         lat: 41.8781,
         lng: -87.6298
       }
     };
   }
-  
   handleChange = address => {
     this.setState({ address });
   };
-  
   handleSelect = address => {
     this.setState({ address });
     console.log(address)
-    
-    this.props.getMapAddress(address)
+    this.props.renderAddress(address)
     geocodeByAddress(address)
     .then(results => getLatLng(results[0]))
     .then(latLng => {
-      console.log('Success', latLng);
-      this.props.getMapCoordinates(latLng)
+      this.props.renderCoords(latLng)
       // update center state
       this.setState({ mapCenter: latLng });
     })
     .catch(error => console.error('Error', error));
   };
-  
   render() {
-    
     const style = {
       width: '80%',
       height: '60%'
     }
-    
     return (
       <div id='googleMaps'>
         <PlacesAutocomplete
@@ -62,7 +50,6 @@ export class MapContainer extends Component {
           >
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div>
-         
               <h5>Check to see if  address is valid</h5>
               <input
                 {...getInputProps({
@@ -95,9 +82,7 @@ export class MapContainer extends Component {
             </div>
           )}
         </PlacesAutocomplete>
-
         <Map
-          
           google={this.props.google}
           initialCenter={{
             lat: this.state.mapCenter.lat,
@@ -115,18 +100,11 @@ export class MapContainer extends Component {
             }} />
         </Map>
       </div>
-      
     )
   }
 }
 
-const mapDispatchToProps = {
-  getMapCoordinates: getMapCoordinates,
-  getMapAddress: getMapAddress
-}
-
-const connector = connect(null, mapDispatchToProps)(MapContainer);
 
   export default GoogleApiWrapper({
     apiKey: ('AIzaSyCdOsVIMuoabg1UXMupeirnXqpjhuvICXA')
-  })(connector)
+  })(MapContainer)

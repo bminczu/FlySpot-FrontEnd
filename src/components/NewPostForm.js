@@ -3,9 +3,7 @@ import {connect} from 'react-redux'
 import { createPost } from '../actions/createPost'
 import MapContainer from './MapContainer'
 import {Container, Col, Row} from 'react-bootstrap'
-
 class NewPostForm extends React.Component{
-
     state = {
         image_url: "",
         title: "",
@@ -18,21 +16,17 @@ class NewPostForm extends React.Component{
         description: "",
         authors_rating: '',
         video: ''
-       
     }
-
     handleInputChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
-
     handleNumberInputChange = (e) => {
         this.setState({
             [e.target.name]: parseInt(e.target.value)
         })
     }
-
     handleStarInput=(e)=>{
         let rating;
         if (e.target.value === "⭐") {
@@ -47,9 +41,7 @@ class NewPostForm extends React.Component{
             rating = 5
         }
         this.setState({authors_rating: rating})
-       
     }
-
     handleSubmit = (e) => {
         console.log(this.state)
         e.preventDefault()
@@ -76,49 +68,28 @@ class NewPostForm extends React.Component{
            console.log(newPostObj)
             this.props.createPost(newPostObj)
             this.props.history.push("/yourposts")
-            
         })
     }
-renderLatitude = () => {
-    if (this.props.getMapCoordinates) {
-        return this.props.getMapCoordinates.lat 
-    
-    } else {
-        return this.state.latitude
-    }
+renderCoords = (latLng) => {
+    this.setState({
+        latitude: latLng.lat,
+        longitude: latLng.lng
+    })
 }
-
-renderLongitude = () => {
-    if (this.props.getMapCoordinates) {
-        return this.props.getMapCoordinates.lng 
-    
-    } else {
-        return this.state.longitude
-    }
-
+renderAddress = (address) => {
+    this.setState({
+        address: address
+    })
 }
-
-renderAddress = () => {
-    if (this.props.getMapAddress) {
-        return this.props.getMapAddress
-    } else {
-        return this.state.address
-    }
-}
-
-   
     render(){
-
         return(
-
-
          <Container >
             <br></br>
             <br></br>
         <Row>
             <Col>      
                 <div>
-                 <MapContainer/>
+                 <MapContainer renderCoords={this.renderCoords} renderAddress={this.renderAddress}/>
                  </div>
             </Col>
             <br></br>
@@ -129,9 +100,9 @@ renderAddress = () => {
             <input type="text" class="form-control" onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title"/><br></br> <br></br>
                 <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input  class="form-control" onChange={this.handleInputChange} value={this.renderAddress()} name= {"address"} placeholder="Address"/> 
+                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/> 
                 <br></br>
-                    <input  class="form-control" onChange={this.handleInputChange} value={this.renderLatitude()} name= {"latitude"} placeholder="Latitude"/>
+                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/>
                 <br></br>
                 <select onChange={this.handleStarInput} value={this.state.authors_rating} name= {"user_rating"} placeholder="Rating 1 to 5" class="form-control">
                         <option selected>Rate This Spot</option>
@@ -153,9 +124,8 @@ renderAddress = () => {
                         <option>Park</option>
                         <option>Other</option>
                      </select>
-
                 <br></br>
-                    <input  class="form-control" onChange={this.handleInputChange} value={this.renderLongitude()} name= {"longitude"} placeholder="Longitude"/>
+                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/>
                 <br></br>
                 <select onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="Airspace" class="form-control">
                     <option selected>Select Airspace Classification</option>
@@ -171,38 +141,27 @@ renderAddress = () => {
                 <div class="form-group col-md-4">
                 </div>
                 </div>
-
                 <br></br>
                 <textarea class="form-control" onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description" rows="3"></textarea> 
                 <br></br>
             </div>
-          
             <button type="submit" class="btn btn-secondary">Post It</button>
             </form>
         </div>   
             </Col>
         </Row>
     </Container>
-
-
-
          )
     }
  }
-
-
 const mapStateToProps = (state) => {
     return {
         currentUser: state.currentUser,
         getMapCoordinates: state.getMapCoordinates,
         getMapAddress: state.getMapAddress
-        
     }
 }
-
 const mapDispatchToProps = { 
     createPost: createPost
-
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NewPostForm)
-

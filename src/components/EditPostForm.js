@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { updateMyPost } from '../actions/createPost'
 import MapContainer from './MapContainer'
 import { Button, Container, Col, Row, Card } from 'react-bootstrap'
-
-
 class EditPostForm extends React.Component {
     state = {
         image_url: this.props.selectMyPost.image_url,
@@ -18,14 +16,12 @@ class EditPostForm extends React.Component {
         description: this.props.selectMyPost.description,
         authors_rating: this.props.selectMyPost.authors_rating,
         video: this.props.selectMyPost.video
-
     }
     handleInputChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
-
     handleStarInput = (e) => {
         let rating;
         if (e.target.value === "⭐") {
@@ -40,16 +36,11 @@ class EditPostForm extends React.Component {
             rating = 5
         }
         this.setState({ authors_rating: rating })
-
     }
-
     handleSubmit = (e) => {
-
         e.preventDefault()
-
         const id = e.target.id
         console.log(e.target)
-
         fetch(`http://localhost:3000/posts/${this.props.selectMyPost.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
@@ -70,14 +61,22 @@ class EditPostForm extends React.Component {
             .then(response => response.json())
             .then(updatedPost => {
                 console.log(updatedPost)
-
                 this.props.updateMyPost(updatedPost)
                 this.props.history.push('/yourposts')
             })
     }
+    renderCoords = (latLng) => {
+        this.setState({
+            latitude: latLng.lat,
+            longitude: latLng.lng
+        })
+    }
+    renderAddress = (address) => {
+        this.setState({
+            address: address
+        })
+    }
     render() {
-
-
         return (
                 <Container >
                     <br></br>
@@ -85,7 +84,7 @@ class EditPostForm extends React.Component {
                     <Row>
                         <Col>
                             <div>
-                                <MapContainer />
+                            <MapContainer renderCoords={this.renderCoords} renderAddress={this.renderAddress}/>
                             </div>
                         </Col>
                         <br></br>
@@ -135,7 +134,6 @@ class EditPostForm extends React.Component {
                                                 <br></br>
                                                 <input class="form-control" onChange={this.handleInputChange} value={this.state.video} name={"video"} placeholder="Youtube Video Link" />
                                         </div>
-                                    
                                         <textarea class="form-control" onChange={this.handleInputChange} value={this.state.description} name={"description"} placeholder="Description" rows="3"></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-secondary">Update</button>
@@ -144,7 +142,6 @@ class EditPostForm extends React.Component {
                         </Col>
                     </Row>
                 </Container>
-
             )
         }
     }
@@ -159,4 +156,3 @@ const mapDispatchToProps = {
     updateMyPost: updateMyPost
 }
 export default connect(mapStateToProps, mapDispatchToProps)(EditPostForm)
-
