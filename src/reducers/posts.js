@@ -4,6 +4,7 @@ const posts = (state=[], action) => {
 
     switch(action.type){
         case "SIGN_IN_USER":
+        case "SIGN_UP_USER":
         case "CURRENT_USER":
             return action.user.posts
         case "CREATE_POST":
@@ -27,4 +28,3 @@ const posts = (state=[], action) => {
 
 export default posts
 
-// THIS REDUCER IS RESPONIBLE FOR MY POSTS ONLY
