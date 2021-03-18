@@ -2,7 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateMyPost } from '../actions/createPost'
 import MapContainer from './MapContainer'
-import { Button, Container, Col, Row, Card } from 'react-bootstrap'
+import { Container, Col, Row} from 'react-bootstrap'
+
+
 class EditPostForm extends React.Component {
     state = {
         image_url: this.props.selectMyPost.image_url,
@@ -40,7 +42,6 @@ class EditPostForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const id = e.target.id
-        console.log(e.target)
         fetch(`http://localhost:3000/posts/${this.props.selectMyPost.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
@@ -60,7 +61,6 @@ class EditPostForm extends React.Component {
         })
             .then(response => response.json())
             .then(updatedPost => {
-                console.log(updatedPost)
                 this.props.updateMyPost(updatedPost)
                 this.props.history.push('/yourposts')
             })

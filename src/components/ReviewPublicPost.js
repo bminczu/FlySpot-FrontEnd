@@ -32,12 +32,10 @@ class ReviewPublicPost extends React.Component{
         .then(response => response.json())
         .then( publicPostReview => {
             this.props.addReview(publicPostReview)
-            // call action that adds new review to selectPublicPostReview
             this.props.history.push(`/showpost/${this.props.selectPublicPost.id}`)
         })
     }
     handleStarInput=(e)=>{
-        console.log(e.target.value)
         let rating;
         if (e.target.value === "⭐") {
             rating = 1
@@ -51,7 +49,6 @@ class ReviewPublicPost extends React.Component{
             rating = 5
         }
         this.setState({user_rating: rating})
-        console.log(rating)
     }
     render(){
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import {Card, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import { currentUser } from '../actions/signinUser'
 import {deleteReview} from '../actions/selectPublicPostReview'
 import {selectReview}from '../actions/selectReview'
 import {withRouter} from 'react-router-dom'
@@ -11,7 +10,6 @@ class ReviewCard extends React.Component{
 
      
     handleEdit = (e) => {
-        // console.log(e.target)
         this.props.selectReview(this.props.review)
         this.props.history.push(`/editreview/${this.props.review.id}`)
     }
@@ -19,7 +17,6 @@ class ReviewCard extends React.Component{
 
     handleDeleteReview = (e) => {
         const id = parseInt(e.target.id)
-        console.log(id)
         fetch(`http://localhost:3000/reviews/${id}`, {
             method: "DELETE"
           
@@ -27,7 +24,6 @@ class ReviewCard extends React.Component{
         .then(resp => resp.json())
         .then(() => {
             this.props.deleteReview(id)
-         console.log(id)
             this.props.history.push(`/showpost/${this.props.selectPublicPost.id}`)
         })
     }
@@ -45,7 +41,7 @@ class ReviewCard extends React.Component{
             return "⭐⭐⭐⭐⭐" }
     }
     render(){
-            const {id, user_id, comment, user_rating} = this.props.review
+            const {id, user_id, comment} = this.props.review
 
         return(
 

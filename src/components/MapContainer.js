@@ -9,7 +9,6 @@ export class MapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // for google map places autocomplete
       address: '',
       showingInfoWindow: false,
       activeMarker: {},
@@ -25,22 +24,17 @@ export class MapContainer extends Component {
   };
   handleSelect = address => {
     this.setState({ address });
-    console.log(address)
     this.props.renderAddress(address)
     geocodeByAddress(address)
     .then(results => getLatLng(results[0]))
     .then(latLng => {
       this.props.renderCoords(latLng)
-      // update center state
       this.setState({ mapCenter: latLng });
     })
     .catch(error => console.error('Error', error));
   };
   render() {
-    const style = {
-      width: '80%',
-      height: '60%'
-    }
+
     return (
       <div id='googleMaps'>
         <PlacesAutocomplete
@@ -63,7 +57,6 @@ export class MapContainer extends Component {
                   const className = suggestion.active
                   ? 'suggestion-item--active'
                   : 'suggestion-item';
-                  // inline style for demonstration purpose
                   const style = suggestion.active
                   ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                   : { backgroundColor: '#ffffff', cursor: 'pointer' };

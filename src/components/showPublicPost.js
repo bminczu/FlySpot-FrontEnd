@@ -9,12 +9,6 @@ import ReviewCard from './ReviewCard'
 
 class showPublicPost extends React.Component{
     
-    handleEdit = (e) => {
-        console.log(e.target)
-    }
-
-
-
     renderReviews = () => {
         return this.props.selectPublicPostReviews.map(reviewObj => {
             return <ReviewCard key={reviewObj.id} review={reviewObj} />

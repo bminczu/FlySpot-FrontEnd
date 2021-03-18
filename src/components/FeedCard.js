@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Container, Col, Row, Card} from 'react-bootstrap'
+import {Button, Card} from 'react-bootstrap'
 import {withRouter} from 'react-router-dom'
 import { selectPublicPost } from '../actions/selectPublicPost'
 import {connect} from 'react-redux'
