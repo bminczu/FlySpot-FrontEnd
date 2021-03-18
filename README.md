@@ -16,18 +16,19 @@ To Start..
 
 Backend 
 
-Run the following commands..
-'bundle install'
-'rails db:migrate'
-'rails db:seed'
-'rails s'
+Run the following commands.
+'bundle install',
+'rails db:migrate',
+'rails db:seed',
+
+and 'rails s'
 
 Frontend
 
-Run the following commands..
-Run 'npm install'
-Then run 'npm start'
-Make sure to start from the signin page at http://localhost:3001/signin
+Run the following commands.
+Run 'npm install', 'npm start'
+
+Make sure to start from the sign in page at http://localhost:3001/signin
 
 
 Developer: Bart Minczuk
