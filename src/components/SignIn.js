@@ -7,8 +7,8 @@ import {Form} from 'react-bootstrap'
 class SignIn extends React.Component{
 
     state = {
-        username: "bart",
-        password: "123",
+        username: "",
+        password: "",
         error: " "
         
     }

@@ -50,7 +50,7 @@ export class MapContainer extends Component {
           >
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div>
-              <h5>Check to see if  address is valid</h5>
+              <h5>Search for valid address</h5>
               <input
                 {...getInputProps({
                   placeholder: 'Search Places ...',

@@ -23,6 +23,7 @@
 }
 
 .logo{
+  margin-right: 800px;
   width: 100px;
   height: 50px;
 }
@@ -88,7 +89,9 @@
   padding-bottom: 200px;
 }
 
-
+.rating{
+  margin-left: 120px;
+}
 
 
 

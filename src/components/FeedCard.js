@@ -39,9 +39,8 @@ class FeedCard extends React.Component{
                     <Card.Img variant="top" src={image_url} />
                     <Card.Body>
                         <Card.Text className="card-text">
-                        <h5>Description:</h5>
-                        <p>{description}</p>
-                        <h6>Author's Rating: {this.renderStars()}</h6>
+                        <h6 className="rating">Author's Rating: {this.renderStars()}</h6>
+                        {description}
                         </Card.Text>
                         <Button onClick={this.handleShowPost} id={id} variant="secondary">View</Button>
                     </Card.Body>

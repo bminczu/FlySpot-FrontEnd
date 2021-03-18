@@ -1,8 +1,4 @@
 import React from 'react';
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Col'
-import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom'
 import { logOutUser } from '../actions/logOutUser';
