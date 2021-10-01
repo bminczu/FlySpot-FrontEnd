@@ -47,6 +47,7 @@ class App extends React.Component {
    
 
       <div className="App">
+        
         <NavBar/>
         <Switch>
           <Route exact path="/yourposts" component={PostContainer} />
