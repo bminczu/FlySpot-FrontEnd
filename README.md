@@ -6,15 +6,29 @@ Add new location posts with pertinent information consisting of an address, coor
 Users are also able to browse through a feed style page which displays posts from all other users. Users have the ability to view each post individually allowing them to review and comment on the particular location/post.
 
 
-Setup: 
-1. Close this repository to your local machine. 
-2. Locate the corresponding backend repository titled FlySpot-Backend.
-3. Run 'bundle install' in your terminal.
+Setup: bundle install, rails db migrate rails db seed
+1. Clone both the backend and frontend repository to your local machine using the SSH key. 
+2. Backend - https://github.com/bminczu/FlySpot-Backend
+3. Cd into each of the directories and open in your favorite editor.
+4. Follow the steps below.
 
-To Start:
+To Start..
 
-Make sure you are CD'd into the correct repo (backend, and frontend)
-Run 'rails s' in the backend repo terminal.
-Run 'npm start' in the frontend repo terminal.
+Backend 
+
+Run the following commands.
+'bundle install',
+'rails db:migrate',
+'rails db:seed',
+
+and 'rails s'
+
+Frontend
+
+Run the following commands.
+Run 'npm install', 'npm start'
+
+Make sure to start from the sign in page at http://localhost:3001/signin
+
 
 Developer: Bart Minczuk
