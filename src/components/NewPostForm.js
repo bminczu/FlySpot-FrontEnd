@@ -83,17 +83,17 @@ renderAddress = (address) => {
 }
     render(){
         return(
-         <Container >
+         <div>
             <br></br>
             <br></br>
-        <Row>
-            <Col>      
+       
+                 
                 <div>
                  <MapContainer renderCoords={this.renderCoords} renderAddress={this.renderAddress}/>
                  </div>
-            </Col>
+           
             <br></br>
-            <Col>
+            
             <div className="new-post-form">
         <form onSubmit={this.handleSubmit}>
          <h5>Your New Fly Spot</h5>
@@ -148,9 +148,8 @@ renderAddress = (address) => {
             <button type="submit" class="btn btn-secondary">Post It</button>
             </form>
         </div>   
-            </Col>
-        </Row>
-    </Container>
+        </div>
+       
          )
     }
  }

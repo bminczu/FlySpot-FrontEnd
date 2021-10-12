@@ -46,7 +46,7 @@ class App extends React.Component {
     return(
    
 
-      <div className="App">
+      <>
         
         <NavBar/>
         <Switch>
@@ -61,7 +61,8 @@ class App extends React.Component {
           <Route exact path="/editreview/:id" component={EditReviewForm} />
           <Route exact path="/map" component={MapContainer} />
         </Switch> 
-      </div>
+        </>
+      
  
    )
   }
