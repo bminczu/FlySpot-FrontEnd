@@ -83,26 +83,26 @@ renderAddress = (address) => {
 }
     render(){
         return(
-         <div>
-            <br></br>
-            <br></br>
+         <div className="form-container">
+            
+            
        
                  
-                <div>
+                <div className="map">
                  <MapContainer renderCoords={this.renderCoords} renderAddress={this.renderAddress}/>
                  </div>
            
-            <br></br>
+           
             
             <div className="new-post-form">
-        <form onSubmit={this.handleSubmit}>
-         <h5>Your New Fly Spot</h5>
-            <input type="text" class="form-control" onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title"/><br></br> <br></br>
-                <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/> 
+            <form onSubmit={this.handleSubmit}>
+                <h5>Your New Fly Spot</h5>
+            <input type="text" onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title"/><br></br> <br></br>
+                <div >
+                <div>
+                    <input   onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/> 
                 <br></br>
-                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/>
+                    <input   onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/>
                 <br></br>
                 <select onChange={this.handleStarInput} value={this.state.authors_rating} name= {"user_rating"} placeholder="Rating 1 to 5" class="form-control">
                         <option selected>Rate This Spot</option>
@@ -113,9 +113,10 @@ renderAddress = (address) => {
                         <option>⭐⭐⭐⭐⭐</option>
                     </select>
                     <br></br>
-                <input  class="form-control" onChange={this.handleInputChange} value={this.state.image_url} name= {"image_url"} placeholder="Photo URL"/>
+                <input   onChange={this.handleInputChange} value={this.state.image_url} name= {"image_url"} placeholder="Photo URL"/>
                 <br></br>
-                        </div><div class="form-group col-md-6">
+                        </div>
+                        <div class="new-post-form">
                          <select onChange={this.handleInputChange} value={this.state.category} name= {"category"} placeholder="Category"class="form-control">
                         <option selected>Area Category</option>
                         <option>Urban</option>

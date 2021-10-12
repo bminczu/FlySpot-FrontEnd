@@ -184,3 +184,11 @@ html{
   max-height:100vh;
 
 }
+
+.new-post-form{
+  display: inline-block;
+}
+
+.map{
+  display: inline-block;
+}

@@ -13,16 +13,12 @@ class Feed extends React.Component{
             .then(allPosts => {
                 let postsArr = allPosts.filter(postObj => postObj.user_id !== this.props.currentUser.id)
                 this.props.getPublicPosts(postsArr)
-                window.Intercom("boot", {
-                    app_id: "sxmnp2gp"
-                  });   
+                  
             }
         )
      }
             
-     boot = () => {window.Intercom("boot", {
-        app_id: "sxmnp2gp"
-      })};
+    
     render(){
 
        
