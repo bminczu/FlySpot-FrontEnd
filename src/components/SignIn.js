@@ -54,14 +54,14 @@ handleSubmit = (e) => {
            
 
 
-            
-        <div className="background">
-            <div className="signin-h1-container">
+       <div className="background">    
+        <div className="signin-container">
+            <div className="welcome-container">
               
 
-                <h1 className="sign-in-h1"> Welcome to FlySpot</h1>
+                <h1 className="welcome"> Welcome to FlySpot</h1>
                
-                <h2> Please Log In</h2>
+                <h2 className="welcome"> Please Log In</h2>
             </div>
            
             <br></br>
@@ -75,6 +75,7 @@ handleSubmit = (e) => {
                  <button type="submit" class="btn btn-secondary">Log In</button>
                  <button type="submit" onClick={this.redirectToSignUp} class="btn btn-secondary">Sign up</button>
             </form>
+        </div>
         </div>
         )
     }
