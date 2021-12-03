@@ -126,7 +126,32 @@
 }
 
 
+/* SIGNIN COMPOENNT STYLING */
 
+.signin-container{
+  position: relative;
+}
+
+.welcome-banner{
+  
+  position: relative;
+  text-align: center;
+}
+
+.please-login{
+  position: relative;
+  text-align: center;
+}
+
+.login-form{
+  
+  position: relative;
+  text-align: center;
+}
+
+.login-btn{
+  width: 6rem;
+}
 
 
 
@@ -172,11 +197,11 @@
   }
 }
 
-/* div.App{
+div.App{
   background-image: url("/src/images/BackgroundForMod52.jpg");
   width: 100%;
   height: 100%;
-} */
+}
 
 html{
   margin:0;

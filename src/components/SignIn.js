@@ -59,21 +59,21 @@ handleSubmit = (e) => {
             <div className="welcome-container">
               
 
-                <h1 className="welcome"> Welcome to FlySpot</h1>
+                <h1 className="welcome-banner"> Welcome to FlySpot</h1>
                
                 <h2 className="please-login"> Please Log In</h2>
             </div>
            
-            <br></br>
+            
             <br></br>
             {this.state.error ? <h5 style={{color: "red"}}>{this.state.error}</h5> : null}
-            <form onSubmit={this.handleSubmit}>
+            <form className="login-form" onSubmit={this.handleSubmit}>
                 <div>
                     <input  name={'username'}  onChange={this.handleInputChange} value={this.state.username} placeholder="Enter your username"/> <br></br> <br></br>
                     <input  type="password" name={'password'}  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
                 </div>
-                 <button type="submit" class="btn btn-secondary">Log In</button>
-                 <button type="submit" onClick={this.redirectToSignUp} class="btn btn-secondary">Sign up</button>
+                 <button className="login-btn" type="submit" className="btn btn-secondary btn-lg">Log In</button>
+                 <button type="submit" onClick={this.redirectToSignUp} className="btn btn-secondary btn-lg">Sign up</button>
             </form>
         </div>
         
