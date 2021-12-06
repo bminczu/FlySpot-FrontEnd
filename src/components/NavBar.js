@@ -29,21 +29,21 @@ class NavBar extends React.Component{
       return (
        
 
-        <div className="nav-div">
-        <nav className="navbar navbar-light bg-light">
+        
+        <div className="navbar">
           {this.props.currentUser ? 
-          <div>
-          <img className="logo" src={Logo}/> 
-          <button className="nav-button"  type="button" className="btn btn-secondary" onClick={this.handleCreatePost} >Create Post</button>
-          <button  type="button" className="btn btn-secondary" onClick={this.handleDirectToFeed} >Feed</button>
-          <button  type="button" className="btn btn-secondary" onClick={this.handleShowYourPosts} >View Your Posts</button>
-          <button className="nav-button" type="button" className="btn btn-light" onClick={this.handleLogOut}>Sign Out </button>
-          </div>
-          :
-          null
-        } 
-        </nav>
-      </div>
+            <div>
+              <img className="logo" src={Logo}/> 
+              <button className="nav-button"  type="button" className="btn btn-secondary" onClick={this.handleCreatePost} >Create Post</button>
+              <button  type="button" className="btn btn-secondary" onClick={this.handleDirectToFeed} >Feed</button>
+              <button  type="button" className="btn btn-secondary" onClick={this.handleShowYourPosts} >View Your Posts</button>
+              <button className="nav-button" type="button" className="btn btn-light" onClick={this.handleLogOut}>Sign Out </button>
+            </div>
+            :
+            null
+          } 
+        </div>
+     
   
        );
       };
