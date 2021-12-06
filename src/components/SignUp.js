@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {signUpUser} from '../actions/signUpUser'
+import {Form, Button} from 'react-bootstrap'
 
 class SignUp extends React.Component{
 
@@ -46,25 +47,29 @@ handleSubmit = (e) => {
 
     render(){
         return(
-        <div className="background">
-            <div className="whitefont">
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <h1> Welcome</h1>
-                <h2> Please Sign Up</h2>
-                <br></br>
+        
+            <div className="signin-container">
+
+            <div className="welcome-container">
+              
+                <h1 className="welcome-banner"> Welcome to FlySpot! </h1>
+                <h5 className="welcome-message">Share your favorite flying spots with the community!</h5>
+               
             </div>
+
+            <br></br>
             {this.state.error ? <h5 style={{color: "red"}}>{this.state.error}</h5> : null}
-            <form onSubmit={this.handleSubmit}>
-                <div>
-                    <input  name='username'  onChange={this.handleInputChange} value={this.state.username} placeholder="Enter unique username"/> <br></br> <br></br>
-                    <input  type="password" name='password'  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
-                 </div>
-                 <button type="submit" class="btn btn-secondary">Create User</button>
+            <Form className="login-form" onSubmit={this.handleSubmit}>
+
+                <h2>Please Create an Account</h2>
+                
+                    <Form.Control  name={"username"}  onChange={this.handleInputChange} value={this.state.username} placeholder="Enter unique username"/> <br></br> <br></br>
+                    <Form.Control  type="password" name={'password'}  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
+                 
+                 <Button type="submit" className=" btn-secondary btn-lg" style={{width: 12 + "em"}} >Create New User</Button>
+      
     
-            </form>
+            </Form>
         </div>
         )
     }

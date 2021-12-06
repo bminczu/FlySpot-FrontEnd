@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {signinUser} from '../actions/signinUser'
-import {Form} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
+
 
 
 class SignIn extends React.Component{
@@ -56,25 +57,26 @@ handleSubmit = (e) => {
 
         
         <div className="signin-container">
+
             <div className="welcome-container">
               
-
-                <h1 className="welcome-banner"> Welcome to FlySpot</h1>
+                <h1 className="welcome-banner"> Welcome to FlySpot! </h1>
+                <h5 className="welcome-message">Share your favorite flying spots with the community!</h5>
                
-                <h2 className="please-login"> Please Log In</h2>
             </div>
            
             
             <br></br>
             {this.state.error ? <h5 style={{color: "red"}}>{this.state.error}</h5> : null}
-            <form className="login-form" onSubmit={this.handleSubmit}>
-                <div>
-                    <input  name={'username'}  onChange={this.handleInputChange} value={this.state.username} placeholder="Enter your username"/> <br></br> <br></br>
-                    <input  type="password" name={'password'}  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
-                </div>
-                 <button className="login-btn" type="submit" className="btn btn-secondary btn-lg">Log In</button>
-                 <button type="submit" onClick={this.redirectToSignUp} className="btn btn-secondary btn-lg">Sign up</button>
-            </form>
+            <Form className="login-form" onSubmit={this.handleSubmit}>
+
+                <h2 className="please-login"> Please Log In</h2>
+                
+                <Form.Control name={'username'}  onChange={this.handleInputChange} value={this.state.username} placeholder="Enter your username"/> <br></br> <br></br>
+                <Form.Control  type="password" name={'password'}  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
+                <Button type="submit" className="btn-secondary btn-lg" style={{width: 5.5 + "em"}}>Log In</Button>
+                <Button type="submit" onClick={this.redirectToSignUp} className=" btn-secondary btn-lg" style={{width: 5.5 + "em"}}>Sign up</Button>
+            </Form>
         </div>
         
         )
