@@ -36,9 +36,14 @@
 } */
 
 .logo{
-  margin-right: 800px;
-  width: 100px;
-  height: 50px;
+  
+  width: 50%;
+  height: 100%;
+  margin-top: -53px;
+  margin-left: -15rem;
+ 
+
+  /* margin-right: 35em; */
 }
 
 
@@ -79,7 +84,8 @@
 
 
 .whitefont {
-  color: 	#C0C0C0
+  color: 	#C0C0C0;
+  text-align: center;
 }
 
 
@@ -119,10 +125,10 @@ body{
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
