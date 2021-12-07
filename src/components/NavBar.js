@@ -29,8 +29,9 @@ class NavBar extends React.Component{
       return (
        
 
-        
-        <div className="navbar">
+         
+
+        <>
           {this.props.currentUser ? 
             <div>
               <img className="logo" src={Logo}/> 
@@ -42,7 +43,9 @@ class NavBar extends React.Component{
             :
             null
           } 
-        </div>
+          </>
+          
+        
      
   
        );

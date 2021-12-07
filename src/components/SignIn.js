@@ -75,7 +75,7 @@ handleSubmit = (e) => {
                 <Form.Control name={'username'}  onChange={this.handleInputChange} value={this.state.username} placeholder="Enter your username"/> <br></br> <br></br>
                 <Form.Control  type="password" name={'password'}  onChange={this.handleInputChange} value={this.state.password} placeholder="Enter your password"/> <br></br> <br></br>
                 <Button type="submit" className="btn-secondary btn-lg" style={{width: 5.5 + "em"}}>Log In</Button>
-                <Button type="submit" onClick={this.redirectToSignUp} className=" btn-secondary btn-lg" style={{width: 5.5 + "em"}}>Sign up</Button>
+                <Button style={{marginRight: "220px"}} type="submit" onClick={this.redirectToSignUp} className=" btn-secondary btn-lg" style={{width: 5.5 + "em"}}>Sign up</Button>
             </Form>
         </div>
         
