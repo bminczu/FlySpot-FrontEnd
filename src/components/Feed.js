@@ -26,13 +26,8 @@ class Feed extends React.Component{
 
 
            
-            <div className="feed-card-background"> 
+            <div className="feed-card-background">
 
-             <head> </head>
-             <script>
-
-
-</script>
             
                 <h1 className="whitefont">COMMUNITY POSTS</h1>
                 {this.props.publicPosts.map(postObj => {
