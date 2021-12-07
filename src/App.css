@@ -1,9 +1,10 @@
 
-.navbar{
+.nav-style{
  
-  width: 100%;
-  
-  background-color: rgba(255, 255, 255, 0.9);
+  position: "fixed"; 
+  top: "0px";
+   left: "0px";
+   right: "0px"
  
 }
 
@@ -86,7 +87,7 @@
 
 
 .whitefont {
-  color: 	#C0C0C0;
+  color: 	#dfd5d5;
   text-align: center;
 }
 

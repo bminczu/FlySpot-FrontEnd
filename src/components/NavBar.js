@@ -34,7 +34,7 @@ class NavBar extends React.Component{
         
         <>
           {this.props.currentUser ? 
-            <Nav fill defaultActiveKey="/home">
+            <Nav style={{position: "fixed", top: "0px", left: "0px",right: "0px"}} fill defaultActiveKey="/home">
               
                 <Navbar.Brand><img className="logo" src={Logo}/> </Navbar.Brand>
               <Nav.Item> <h1 onClick={this.handleCreatePost}>  Create Post </h1> </Nav.Item>
