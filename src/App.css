@@ -37,10 +37,12 @@
 
 .logo{
   
-  width: 50%;
-  height: 100%;
-  margin-top: -53px;
-  margin-left: -15rem;
+  width: 15rem;
+  height: 14rem;
+  margin-top: -5.5rem;
+   /* height of container */
+  
+  
  
 
   /* margin-right: 35em; */
@@ -172,13 +174,15 @@ body{
   margin: auto;
 }
 
-/* .login-btn{
-  width: 100px;
-  color: #212529;
-  text-decoration: none;
+.login-error{
   
+  text-align: center;
+  
+  
+  margin: auto;
+  color: red
  
-} */
+} 
 
 
 

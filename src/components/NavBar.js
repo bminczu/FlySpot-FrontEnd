@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom'
 import { logOutUser } from '../actions/logOutUser';
 import Logo from '../images/Logo.jpeg'
-import { Nav } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 
 class NavBar extends React.Component{ 
@@ -34,9 +34,9 @@ class NavBar extends React.Component{
         
         <>
           {this.props.currentUser ? 
-            <Nav fill  defaultActiveKey="/home">
-              <Nav.Item>
-                <img className="logo" src={Logo}/> </Nav.Item>
+            <Nav fill defaultActiveKey="/home">
+              
+                <Navbar.Brand><img className="logo" src={Logo}/> </Navbar.Brand>
               <Nav.Item> <h1 onClick={this.handleCreatePost}>  Create Post </h1> </Nav.Item>
               <Nav.Item> <h1 onClick={this.handleDirectToFeed}> Feed </h1></Nav.Item>
               <Nav.Item> <h1 onClick={this.handleLogOut}>Sign Out </h1> </Nav.Item>

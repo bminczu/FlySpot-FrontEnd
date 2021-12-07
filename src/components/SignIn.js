@@ -67,7 +67,7 @@ handleSubmit = (e) => {
            
             
             <br></br>
-            {this.state.error ? <h5 style={{color: "red"}}>{this.state.error}</h5> : null}
+            {this.state.error ? <h5 className="login-error">{this.state.error}</h5> : null}
             <Form className="login-form" onSubmit={this.handleSubmit}>
 
                 <h2 className="please-login"> Please Log In</h2>
