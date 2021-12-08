@@ -66,7 +66,7 @@ handleSubmit = (e) => {
             </div>
            
             
-            <br></br>
+            
             {this.state.error ? <h5 className="login-error">{this.state.error}</h5> : null}
             <Form className="login-form" onSubmit={this.handleSubmit}>
 

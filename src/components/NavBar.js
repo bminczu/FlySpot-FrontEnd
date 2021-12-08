@@ -34,12 +34,13 @@ class NavBar extends React.Component{
         
         <>
           {this.props.currentUser ? 
-            <Nav style={{position: "fixed", top: "0px", left: "0px",right: "0px"}} fill defaultActiveKey="/home">
+            <Nav className="nav-style" fill >
               
                 <Navbar.Brand><img className="logo" src={Logo}/> </Navbar.Brand>
-              <Nav.Item> <h1 onClick={this.handleCreatePost}>  Create Post </h1> </Nav.Item>
-              <Nav.Item> <h1 onClick={this.handleDirectToFeed}> Feed </h1></Nav.Item>
-              <Nav.Item> <h1 onClick={this.handleLogOut}>Sign Out </h1> </Nav.Item>
+              <Nav.Item> <h1 className="nav-button" onClick={this.handleCreatePost}>  Create Post </h1> </Nav.Item>
+              <Nav.Item> <h1 className="nav-button" onClick={this.handleShowYourPosts}>Your Posts</h1></Nav.Item>
+              <Nav.Item> <h1 className="nav-button" onClick={this.handleDirectToFeed}> Feed </h1></Nav.Item>
+              <Nav.Item> <h1 className="nav-button" onClick={this.handleLogOut}>Sign Out </h1> </Nav.Item>
             </Nav>
           :
           null

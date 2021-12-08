@@ -1,13 +1,25 @@
 
 .nav-style{
- 
-  position: "fixed"; 
-  top: "0px";
-   left: "0px";
-   right: "0px"
+ height: 50px;
+  position: fixed; 
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+   
+   background-image: linear-gradient(#ffffff, rgb(167, 167, 167));
  
 }
 
+.nav-button{
+  font-family: Impact, 'Arial Narrow Bold', sans-serif;
+  font-weight: lighter;
+  border-radius: 10px;
+}
+
+.nav-button:hover{
+  background-image: linear-gradient(rgb(228, 228, 228), rgb(112, 112, 112));
+}
 
 
 .background {
@@ -86,8 +98,9 @@
 
 
 
-.whitefont {
+.feed-heading {
   color: 	#dfd5d5;
+  margin-top:5rem;
   text-align: center;
 }
 
@@ -163,7 +176,7 @@ body{
 
 .please-login{
   margin-top: 5rem;
-  font-size: 2.45rem;
+  font-size: 2rem;
   position: relative;
   text-align: center;
 }
