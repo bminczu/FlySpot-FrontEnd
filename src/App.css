@@ -1,4 +1,7 @@
-
+html{
+  margin: 0;
+  height: 100%;
+}
 .nav-style{
  height: 50px;
   position: fixed; 
@@ -10,6 +13,7 @@
    background-image: linear-gradient(#ffffff, rgb(167, 167, 167));
  
 }
+
 
 .nav-button{
   font-family: Impact, 'Arial Narrow Bold', sans-serif;
@@ -37,16 +41,10 @@
   background-size: cover;
 }
 
-.form-background{
-  background-image: url('/src/images/BackgroundForMod52.jpg')
-}
 
 
-/* previous background */
-/* .feed-card-background {
-  background-image: url('/src/images/BackgroundForMod52.jpg');
-  max-width: 100%;
-} */
+
+
 
 .logo{
   
@@ -90,10 +88,6 @@
 }
 
 
-.new-post-form{
-
-  margin-left: 10px;
-}
 
 
 
@@ -208,19 +202,47 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 
 
+/* SPLIT FORM and Map */
+
+
+
+/* .split{
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.split-form{
+  right: 0;
+}
+
+.split-map{
+  left: 0;
+} */
 
 
 
 
+.leftside, .rightside{
+  height: 100vh;
+  width: 100%;
+}
+
+.leftside{
+  background: red;
+  left: 0;
+
+}
 
 
-
-
-
-
-
-
-
+.rightside{
+  background-color: blue;
+  right: 0;
+}
 
 
 

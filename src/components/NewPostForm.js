@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { createPost } from '../actions/createPost'
 import MapContainer from './MapContainer'
-import {Container, Col, Row} from 'react-bootstrap'
+import {Container, Col, Row, Form} from 'react-bootstrap'
 class NewPostForm extends React.Component{
     state = {
         image_url: "",
@@ -83,27 +83,32 @@ renderAddress = (address) => {
 }
     render(){
         return(
-         <div>
-            <br></br>
-            <br></br>
-       
+            <Container>
                  
-                <div>
-                 <MapContainer renderCoords={this.renderCoords} renderAddress={this.renderAddress}/>
-                 </div>
-           
-            <br></br>
-            
-            <div className="new-post-form">
-        <form onSubmit={this.handleSubmit}>
+                   <Row>
+
+                 
+                    <Col>
+                 {/* <MapContainer renderCoords={this.renderCoords} renderAddress={this.renderAddress}/> */}
+                        <div className="leftside"></div>
+                        </Col>
+               
+          
+           <Col> 
+
+        <form  onSubmit={this.handleSubmit}>
          <h5>Your New Fly Spot</h5>
-            <input type="text" class="form-control" onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title"/><br></br> <br></br>
-                <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/> 
-                <br></br>
-                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/>
-                <br></br>
+
+            <Form.Control type="text"  onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title"/>
+
+              
+
+                    <Form.Control  class="form-control" onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/> 
+                
+          
+                    <Form.Control  class="form-control" onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/>
+               
+          
                 <select onChange={this.handleStarInput} value={this.state.authors_rating} name= {"user_rating"} placeholder="Rating 1 to 5" class="form-control">
                         <option selected>Rate This Spot</option>
                         <option>⭐</option>
@@ -111,11 +116,14 @@ renderAddress = (address) => {
                         <option>⭐⭐⭐</option>
                         <option>⭐⭐⭐⭐</option>
                         <option>⭐⭐⭐⭐⭐</option>
-                    </select>
-                    <br></br>
-                <input  class="form-control" onChange={this.handleInputChange} value={this.state.image_url} name= {"image_url"} placeholder="Photo URL"/>
-                <br></br>
-                        </div><div class="form-group col-md-6">
+                </select>
+
+              
+                <Form.Control  class="form-control" onChange={this.handleInputChange} value={this.state.image_url} name= {"image_url"} placeholder="Photo URL"/>
+                
+          
+                      
+
                          <select onChange={this.handleInputChange} value={this.state.category} name= {"category"} placeholder="Category"class="form-control">
                         <option selected>Area Category</option>
                         <option>Urban</option>
@@ -124,9 +132,12 @@ renderAddress = (address) => {
                         <option>Park</option>
                         <option>Other</option>
                      </select>
-                <br></br>
-                    <input  class="form-control" onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/>
-                <br></br>
+
+               
+
+                    <Form.Control  class="form-control" onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/>
+                
+          
                 <select onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="Airspace" class="form-control">
                     <option selected>Select Airspace Classification</option>
                     <option>Class A</option>
@@ -135,21 +146,26 @@ renderAddress = (address) => {
                     <option>Class D</option>
                     <option>Class G</option>
                 </select>
-                <br></br>
-                <input  class="form-control" onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Youtube Video Link"/>
-                <br></br>
-                <div class="form-group col-md-4">
-                </div>
-                </div>
-                <br></br>
-                <textarea class="form-control" onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description" rows="3"></textarea> 
-                <br></br>
-            </div>
+
+          
+                <Form.Control  class="form-control" onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Youtube Video Link"/>
+                
+                          
+
+                
+                
+                          <textarea class="form-control" onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description" rows="3"></textarea> 
+                      
             <button type="submit" class="btn btn-secondary">Post It</button>
             </form>
-        </div>   
-        </div>
-       
+            
+            </Col>
+              
+                 </Row>
+            
+            </Container>
+           
+           
          )
     }
  }
