@@ -88,16 +88,17 @@ renderAddress = (address) => {
                    <Row>
 
                  
-                    <Col>
+                    <Col className= "leftside">
                  {/* <MapContainer renderCoords={this.renderCoords} renderAddress={this.renderAddress}/> */}
-                        <div className="leftside"></div>
+                        <div ><MapContainer renderCoords={this.renderCoords} renderAddress={this.renderAddress}/></div>
                         </Col>
                
           
-           <Col> 
+           <Col className="rightside"> 
 
         <form  onSubmit={this.handleSubmit}>
          <h5>Your New Fly Spot</h5>
+         <br></br>
 
             <Form.Control type="text"  onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title"/>
 
