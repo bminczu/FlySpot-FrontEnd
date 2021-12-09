@@ -42,7 +42,7 @@ class FeedCard extends React.Component{
                         <h6 className="rating">Author's Rating: {this.renderStars()}</h6>
                         {description}
                         </Card.Text>
-                        <Button onClick={this.handleShowPost} id={id} variant="secondary">View</Button>
+                        <Button onClick={this.handleShowPost} id={id} variant="secondary">View Details</Button>
                     </Card.Body>
                     </Card>
                 </div>

@@ -16,7 +16,9 @@ class PostContainer extends React.Component{
         return(
            
             <div>
-                <h1 className="whitefont"> YOUR POSTS</h1>
+                <div className="feed-h1-container">
+                    <h1 className="feed-heading"> YOUR POSTS</h1>
+                </div>
 
                 {this.renderPosts()}
             </div>

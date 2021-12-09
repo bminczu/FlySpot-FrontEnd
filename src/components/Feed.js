@@ -26,10 +26,13 @@ class Feed extends React.Component{
 
 
            
-            <div className="feed-card-background">
+            <div> 
 
-            
-                <h1 className="feed-heading">COMMUNITY POSTS</h1>
+                <div className="feed-h1-container">
+                    <h1 className="feed-heading">COMMUNITY FEED</h1>
+                </div>
+
+
                 {this.props.publicPosts.map(postObj => {
                         return <FeedCard  key={postObj.id} post={postObj} /> 
                  })}

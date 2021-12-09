@@ -73,11 +73,13 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
 
 
 .card {
   margin-top: 25px;
+  
 }
 
 .my-post-card {
@@ -90,12 +92,25 @@ html{
 
 
 
-
+.feed-h1-container{
+  margin-top: 4rem;
+  margin-bottom: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
 
 .feed-heading {
-  color: 	#dfd5d5;
-  margin-top:5rem;
+  
+  color: 	#242121;
+
+  margin-bottom: -15px;
   text-align: center;
+  background-color: white;
+  width: 30rem;
+  border-radius: 10px;
+  background-image: linear-gradient(#ffffff, rgb(167, 167, 167));
 }
 
 
@@ -245,7 +260,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   margin-top: 6rem;
   margin-left: 5rem;
   height: 70vh;
- border-radius: 15px;
+ border-radius: 10px;
   background-color: white;
 
 }
