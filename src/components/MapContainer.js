@@ -44,7 +44,7 @@ export class MapContainer extends Component {
           >
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div>
-              <h5>Search for valid address</h5>
+              <h5 className="map-search-h5">Search for valid address</h5>
               <input
                 {...getInputProps({
                   placeholder: 'Search Places ...',
@@ -60,8 +60,8 @@ export class MapContainer extends Component {
                   const style = suggestion.active
                   ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                   : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                  return (
-                    <div
+                  
+                    <div 
                     {...getSuggestionItemProps(suggestion, {
                       className,
                       style,
@@ -69,7 +69,7 @@ export class MapContainer extends Component {
                     >
                       <span>{suggestion.description}</span>
                     </div>
-                  );
+                  
                 })}
               </div>
             </div>
