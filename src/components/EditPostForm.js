@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateMyPost } from '../actions/createPost'
 import MapContainer from './MapContainer'
-import { Container, Col, Row} from 'react-bootstrap'
+import { Container, Col, Row, Form} from 'react-bootstrap'
 
 
 class EditPostForm extends React.Component {
@@ -78,70 +78,83 @@ class EditPostForm extends React.Component {
     }
     render() {
         return (
-                <Container >
-                    <br></br>
-                    <br></br>
-                    <Row>
-                        <Col>
-                            <div>
-                            <MapContainer renderCoords={this.renderCoords} renderAddress={this.renderAddress}/>
-                            </div>
-                        </Col>
-                        <br></br>
-                        <Col>
-                            <div className="new-post-form">
-                                <form onSubmit={this.handleSubmit}>
-                                    <h5>Your New Fly Spot</h5>
-                                    <input type="text" class="form-control" onChange={this.handleInputChange} value={this.state.title} name={"title"} placeholder="Title" /><br></br> <br></br>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <input class="form-control" onChange={this.handleInputChange} value={this.state.address} name={"address"} placeholder="Address" />
-                                            <br></br>
-                                            <input class="form-control" onChange={this.handleInputChange} value={this.state.latitude} name={"latitude"} placeholder="Latitude" />
-                                            <br></br>
-                                            <select onChange={this.handleStarInput} value={this.state.authors_rating} name={"user_rating"} placeholder="Rating 1 to 5" class="form-control">
-                                                <option selected>Rate This Spot</option>
-                                                <option>⭐</option>
-                                                <option>⭐⭐</option>
-                                                <option>⭐⭐⭐</option>
-                                                <option>⭐⭐⭐⭐</option>
-                                                <option>⭐⭐⭐⭐⭐</option>
-                                            </select>
-                                            <br></br>
-                                            <input class="form-control" onChange={this.handleInputChange} value={this.state.image_url} name={"image_url"} placeholder="Photo URL" />
-                                            <br></br>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                                <select onChange={this.handleInputChange} value={this.state.category} name={"category"} placeholder="Category" class="form-control">
-                                                    <option selected>Area Category</option>
-                                                    <option>Urban</option>
-                                                    <option>Nature</option>
-                                                    <option>Industrial</option>
-                                                    <option>Park</option>
-                                                    <option>Other</option>
-                                                </select>
-                                                <br></br>
-                                                <input class="form-control" onChange={this.handleInputChange} value={this.state.longitude} name={"longitude"} placeholder="Longitude" />
-                                            <br></br>
-                                                <select onChange={this.handleInputChange} value={this.state.airspace} name={"airspace"} placeholder="Airspace" class="form-control">
-                                                    <option selected>Select Airspace Classification</option>
-                                                    <option>Class A</option>
-                                                    <option>Class B</option>
-                                                    <option>Class C</option>
-                                                    <option>Class D</option>
-                                                    <option>Class G</option>
-                                                </select>
-                                                <br></br>
-                                                <input class="form-control" onChange={this.handleInputChange} value={this.state.video} name={"video"} placeholder="Youtube Video Link" />
-                                        </div>
-                                        <textarea class="form-control" onChange={this.handleInputChange} value={this.state.description} name={"description"} placeholder="Description" rows="3"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-secondary">Update</button>
-                                </form>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
+            <Container>
+                 
+            <Row>
+
+             
+                <Col className= "leftside">
+                    <MapContainer renderCoords={this.renderCoords} renderAddress={this.renderAddress}/>
+                </Col>
+           
+      
+                <Col className="rightside"> 
+
+                    <Form onSubmit={this.handleSubmit}>
+                        <h5 className="post-form-h5">Your New Fly Spot</h5>
+                    
+
+                        <Form.Control type="text"  onChange={this.handleInputChange} value={this.state.title}  name= {"title"} placeholder="Title"/>
+
+                
+
+                        <Form.Control  class="form-control" onChange={this.handleInputChange} value={this.state.address} name= {"address"} placeholder="Address"/> 
+                    
+            
+                        <Form.Control  class="form-control" onChange={this.handleInputChange} value={this.state.latitude} name= {"latitude"} placeholder="Latitude"/>
+                
+            
+                            <select onChange={this.handleStarInput} value={this.state.authors_rating} name= {"user_rating"} placeholder="Rating 1 to 5" class="form-control">
+                                <option selected>Rate This Spot</option>
+                                <option>⭐</option>
+                                <option>⭐⭐</option>
+                                <option>⭐⭐⭐</option>
+                                <option>⭐⭐⭐⭐</option>
+                                <option>⭐⭐⭐⭐⭐</option>
+                            </select>
+
+
+                        <Form.Control  class="form-control" onChange={this.handleInputChange} value={this.state.image_url} name= {"image_url"} placeholder="Photo URL"/>
+                    
+            
+                        
+
+                            <select onChange={this.handleInputChange} value={this.state.category} name= {"category"} placeholder="Category"class="form-control">
+                            <option selected>Area Category</option>
+                            <option>Urban</option>
+                            <option>Nature</option>
+                            <option>Industrial</option>
+                            <option>Park</option>
+                            <option>Other</option>
+                            </select>
+
+            
+
+                        <Form.Control  class="form-control" onChange={this.handleInputChange} value={this.state.longitude} name= {"longitude"} placeholder="Longitude"/>
+                        
+                
+                                <select onChange={this.handleInputChange} value={this.state.airspace} name= {"airspace"} placeholder="Airspace" class="form-control">
+                                <option selected>Select Airspace Classification</option>
+                                <option>Class A</option>
+                                <option>Class B</option>
+                                <option>Class C</option>
+                                <option>Class D</option>
+                                <option>Class G</option>
+                                </select>
+
+                
+                        <Form.Control  class="form-control" onChange={this.handleInputChange} value={this.state.video} name= {"video"} placeholder="Youtube Video Link"/>
+
+                                <textarea class="form-control" onChange={this.handleInputChange} value={this.state.description} name= {"description"} placeholder="Description" rows="3"></textarea> 
+                                    
+                                <button type="submit" class="btn btn-secondary">Post It</button>
+                </Form>
+                </Col>
+          
+             </Row>
+        
+        </Container>
+       
             )
         }
     }
