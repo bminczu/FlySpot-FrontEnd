@@ -39,11 +39,11 @@ class showPublicPost extends React.Component{
 
             
         <Container>
-                <br></br>
-                <br></br>
+               
             <Row>
                 <Col>      
-                    <div>
+                    <div className="public-post-col">
+                        <div className="public-post-contents">
                     <h1>{title}</h1>
                     <br></br>
                     <img width="400px" height="300px" src={image_url}></img>
@@ -57,6 +57,7 @@ class showPublicPost extends React.Component{
                     <h5>Airspace Classification:</h5><p>{airspace}</p>
                     <p> {description}</p>
                     <br></br>
+                    </div>
                     </div>
                 </Col>
                 <Col>
