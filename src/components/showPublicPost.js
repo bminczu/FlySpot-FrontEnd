@@ -1,7 +1,7 @@
 import React from 'react' 
 import {connect} from 'react-redux'
-import {Button, Container, Col, Row, Card} from 'react-bootstrap'
-import {deleteReview, selectPublicPostReviews} from '../actions/selectPublicPostReview'
+import {Button, Container, Col, Row} from 'react-bootstrap'
+import {deleteReview} from '../actions/selectPublicPostReview'
 import {selectReview}from '../actions/selectReview'
 import ReviewCard from './ReviewCard'
 
@@ -61,9 +61,12 @@ class showPublicPost extends React.Component{
                     </div>
                 </Col>
                 <Col>
-                <h1>Comments</h1>
-                <Card body>{this.renderReviews()} </Card>
-                <Button className="btn btn-secondary" onClick={()=> this.props.history.push(`/reviewpost/${id}`)} id={id}>Leave Feedback </Button> 
+                    <div className="reviews-container"> 
+
+                        <h1 >Comments</h1>
+                        <div >{this.renderReviews()} </div>
+                        <Button className="btn btn-secondary" onClick={()=> this.props.history.push(`/reviewpost/${id}`)} id={id}>Leave Feedback </Button> 
+                    </div>
                 
                 </Col>
             </Row>

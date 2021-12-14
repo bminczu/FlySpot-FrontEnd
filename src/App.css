@@ -293,6 +293,23 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   margin: auto;
 }
 
+.review-col{
+  margin-top: 5rem;
+}
+
+.reviews-heading{
+  margin-top: 5rem;
+}
+
+.reviews-container{
+  margin-top: 5rem;
+  background-color: white;
+}
+
+.review-card{
+  margin-top: 2rem;
+
+}
 
 .App-header {
   background-color: #282c34;

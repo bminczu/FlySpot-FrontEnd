@@ -46,8 +46,10 @@ class ReviewCard extends React.Component{
         return(
 
                 
-            <Card> 
-                 
+            <div className="review-card"> 
+
+                 <div> 
+
                 Peer rating: { this.renderStars()}<br></br>
                 {comment} <br></br>
 
@@ -60,7 +62,8 @@ class ReviewCard extends React.Component{
                 null
                 
             }
-            </Card>
+            </div>
+            </div>
         )
         
 }
