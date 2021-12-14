@@ -26,20 +26,6 @@ html{
 }
 
 
-.background {
-  /* The image used */
-  background-image: url("/src/images/BackgroundForMod52.jpg");
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  /* Full height */
-  height: 100%; 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 
 
@@ -51,12 +37,6 @@ html{
   width: 15rem;
   height: 14rem;
   margin-top: -5.5rem;
-   /* height of container */
-  
-  
- 
-
-  /* margin-right: 35em; */
 }
 
 

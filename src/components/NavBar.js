@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom'
 import { logOutUser } from '../actions/logOutUser';
 import Logo from '../images/Logo.jpeg'
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 
 
 class NavBar extends React.Component{ 
@@ -36,7 +36,7 @@ class NavBar extends React.Component{
           {this.props.currentUser ? 
             <Nav className="nav-style" fill >
               
-                <Navbar.Brand><img className="logo" src={Logo}/> </Navbar.Brand>
+                <Navbar.Brand ><img className="logo" onCLick={this.handleDirectToFeed} src={Logo}/> </Navbar.Brand>
               <Nav.Item> <h1 className="nav-button" onClick={this.handleCreatePost}>  Create Post </h1> </Nav.Item>
               <Nav.Item> <h1 className="nav-button" onClick={this.handleShowYourPosts}>Your Posts</h1></Nav.Item>
               <Nav.Item> <h1 className="nav-button" onClick={this.handleDirectToFeed}> Feed </h1></Nav.Item>
@@ -47,24 +47,6 @@ class NavBar extends React.Component{
           }
           </>
     
-
-        // <>
-
-        //   {this.props.currentUser ? 
-        //     >
-        //       <img className="logo" src={Logo}/> 
-        //       className="nav-button"  type="button" className="btn btn-secondary" onClick={this.handleCreatePost} >Create Post</button>
-        //        type="button" className="btn btn-secondary" onClick={this.handleDirectToFeed} >Feed</button>
-        //        type="button" className="btn btn-secondary" onClick={this.handleShowYourPosts} >View Your Posts</button>
-        //       className="nav-button" type="button" className="btn btn-light" onClick={this.handleLogOut}>Sign Out </button>
-        //     </div>
-        //     :
-        //     null
-        //   } 
-        //   </>
-          
-          
-        
      
   
        );

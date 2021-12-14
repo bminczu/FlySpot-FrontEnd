@@ -1,5 +1,4 @@
 import React from 'react'
-import {Card, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {deleteReview} from '../actions/selectPublicPostReview'
 import {selectReview}from '../actions/selectReview'

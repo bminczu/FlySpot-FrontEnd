@@ -47,6 +47,8 @@ class showPublicPost extends React.Component{
                     <h1>{title}</h1>
                     <br></br>
                     <img width="400px" height="300px" src={image_url}></img>
+                    <br></br>
+                    <br></br>
                     <p>Author's Rating {this.renderStars()}</p>
                     <h5>Location Category:</h5>
                     <p>{category}</p>
