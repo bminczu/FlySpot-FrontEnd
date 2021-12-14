@@ -46,17 +46,18 @@ class ReviewCard extends React.Component{
         return(
 
                 
-            <div className="review-card"> 
+            <div > 
 
-                 <div> 
+                 <div className="review-card"> 
 
                 Peer rating: { this.renderStars()}<br></br>
+                <br></br>
                 {comment} <br></br>
 
                 {user_id === this.props.currentUser.id ? 
                 <div>
-                <Button className="btn btn-secondary" onClick={this.handleEdit}>  Edit Review</Button>
-                <Button className="btn btn-secondary" id={id} onClick={this.handleDeleteReview}> Delete Review </Button>
+                <p className="btn btn-secondary" onClick={this.handleEdit}>  Edit Your Review</p>
+                <p className="btn btn-secondary" id={id} onClick={this.handleDeleteReview}> Delete Your Review </p>
                 </div>
                 :
                 null

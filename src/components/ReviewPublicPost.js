@@ -54,7 +54,7 @@ class ReviewPublicPost extends React.Component{
 
         return(
             <div>
-                <img src="src/images/BackgroundForMod52.jpg" id="bg" alt=""></img>
+                
             <div  className="new-review">
                 <form className="form" onSubmit={this.handleSubmit}>
 

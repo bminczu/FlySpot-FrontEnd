@@ -63,7 +63,7 @@ class showPublicPost extends React.Component{
                 <Col>
                     <div className="reviews-container"> 
 
-                        <h1 >Comments</h1>
+                        <h1 className="reviews-heading" >Comments</h1>
                         <div >{this.renderReviews()} </div>
                         <Button className="btn btn-secondary" onClick={()=> this.props.history.push(`/reviewpost/${id}`)} id={id}>Leave Feedback </Button> 
                     </div>
