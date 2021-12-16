@@ -55,6 +55,7 @@ class ReviewCard extends React.Component{
 
                 {user_id === this.props.currentUser.id ? 
                 <div>
+                    <br></br>
                 <p className="btn btn-secondary" onClick={this.handleEdit}>  Edit Your Review</p>
                 <p className="btn btn-secondary" id={id} onClick={this.handleDeleteReview}> Delete Your Review </p>
                 </div>
