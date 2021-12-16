@@ -16,7 +16,7 @@ class PostCard extends React.Component{
     handleDeletePost = (e) => {
         const id = parseInt(e.target.id)
        
-        fetch(`http://localhost:3000/posts/${id}`, {
+        fetch(`https://flyspot-backend.herokuapp.com/posts/${id}`, {
             method: "DELETE"
           
         })

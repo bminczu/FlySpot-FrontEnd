@@ -42,7 +42,7 @@ class EditPostForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const id = e.target.id
-        fetch(`http://localhost:3000/posts/${this.props.selectMyPost.id}`, {
+        fetch(`https://flyspot-backend.herokuapp.com/posts/${this.props.selectMyPost.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

@@ -8,7 +8,7 @@ class Feed extends React.Component{
 
     
         componentDidMount(){
-        fetch("http://localhost:3000/posts")
+        fetch("https://flyspot-backend.herokuapp.com/posts")
             .then(response => response.json())
             .then(allPosts => {
                 let postsArr = allPosts.filter(postObj => postObj.user_id !== this.props.currentUser.id)

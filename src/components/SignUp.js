@@ -21,7 +21,7 @@ handleInputChange = (e) => {
 handleSubmit = (e) => {
     e.preventDefault()
 
-    fetch("http://localhost:3000/users", {
+    fetch("https://flyspot-backend.herokuapp.com/users", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({

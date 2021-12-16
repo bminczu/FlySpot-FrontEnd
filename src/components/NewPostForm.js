@@ -45,7 +45,7 @@ class NewPostForm extends React.Component{
     handleSubmit = (e) => {
         console.log(this.state)
         e.preventDefault()
-        fetch("http://localhost:3000/posts", {
+        fetch("https://flyspot-backend.herokuapp.com/posts", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'},

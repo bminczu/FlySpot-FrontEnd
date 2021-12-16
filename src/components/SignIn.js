@@ -32,7 +32,7 @@ handleSubmit = (e) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(this.state)
     }
-    fetch('http://localhost:3000/api/v1/auth', reqObj)
+    fetch('https://flyspot-backend.herokuapp.com/api/v1/auth', reqObj)
     .then(resp => resp.json())
     .then(userObj => {           
         if (userObj.error){

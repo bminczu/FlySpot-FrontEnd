@@ -19,7 +19,7 @@ class ReviewPublicPost extends React.Component{
          
         e.preventDefault()
         
-        fetch("http://localhost:3000/reviews", {
+        fetch("https://flyspot-backend.herokuapp.com/reviews", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({

@@ -19,7 +19,7 @@ class EditReviewForm extends React.Component{
 
     handleSubmit = (e) =>{ 
         e.preventDefault()
-        fetch(`http://localhost:3000/reviews/${this.props.selectReview.id}`, {
+        fetch(`https://flyspot-backend.herokuapp.com/reviews/${this.props.selectReview.id}`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({

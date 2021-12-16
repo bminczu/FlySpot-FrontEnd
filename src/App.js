@@ -32,7 +32,7 @@ class App extends React.Component {
                 Authorization: `Bearer ${token}`
             }
         }
-        fetch("http://localhost:3000/api/v1/current_user", reqObj)
+        fetch("https://flyspot-backend.herokuapp.com/api/v1/current_user", reqObj)
         .then(response => response.json())
         .then(data => {
             this.props.currentUser(data.user)
